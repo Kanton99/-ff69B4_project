@@ -9,6 +9,7 @@ public class InputControl : MonoBehaviour
     public SpriteRenderer arms;
     public SpriteRenderer body;
     public Rigidbody2D rigid;
+
     public Vector2 direction;
 
     // Start is called before the first frame update
@@ -20,9 +21,11 @@ public class InputControl : MonoBehaviour
       Vector3 direction = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"),0).normalized;
       if(direction != Vector3.zero) {
         animator.SetBool("run", true);
-        bool flip = false;
+        bool flip = body.flipX;
         if(Vector3.Dot(direction, new Vector3(1,0,0)) < 0)
           flip = true;
+        if(Vector3.Dot(direction, new Vector3(1,0,0)) > 0)
+          flip = false;
         arms.flipX = flip;
         body.flipX = flip;
         rigid.velocity = moving_speed * direction;
@@ -43,7 +46,7 @@ public class InputControl : MonoBehaviour
             arms.flipX = flip;
             body.flipX = flip;
         } 
-        else   animator.SetBool("run", false);
+        else animator.SetBool("run", false);
     }
 
     void FixedUpdate() 
@@ -51,5 +54,4 @@ public class InputControl : MonoBehaviour
         if(direction != Vector2.zero)   rigid.MovePosition(rigid.position + direction * moving_speed * Time.fixedDeltaTime);
         else         rigid.velocity = Vector3.zero;
     }
-
 }
