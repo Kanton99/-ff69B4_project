@@ -15,7 +15,6 @@ public class InputControl : MonoBehaviour
     // Start is called before the first frame update
     void Start() {}
     
-    /* ANOTHER METHOD TO MOVE THE CHARACTER
     // Update is called once per frame
     void Update() {
       Vector3 direction = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"),0).normalized;
@@ -33,25 +32,5 @@ public class InputControl : MonoBehaviour
         animator.SetBool("run", false);
         rigid.velocity = Vector3.zero;
       }
-    }*/
 
-    void Update()
-    {
-        direction.x = Input.GetAxisRaw("Horizontal");
-        direction.y = Input.GetAxisRaw("Vertical");
-        if(direction != Vector2.zero) {
-            animator.SetBool("run", true);
-            bool flip = false;
-            if(Vector2.Dot(direction, new Vector2(1,0)) < 0)    flip = true;
-            arms.flipX = flip;
-            body.flipX = flip;
-        } 
-        else animator.SetBool("run", false);
-    }
-
-    void FixedUpdate() 
-    {
-        if(direction != Vector2.zero)   rigid.MovePosition(rigid.position + direction * moving_speed * Time.fixedDeltaTime);
-        else         rigid.velocity = Vector3.zero;
-    }
 }
