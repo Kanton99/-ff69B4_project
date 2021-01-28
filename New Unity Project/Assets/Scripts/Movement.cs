@@ -113,14 +113,10 @@ public class Movement : MonoBehaviour {
             _player = coll.gameObject;
             _curr_state = State.SUGG_DIALOG;
              voices[0].Play();
-            for (int i = 0; i < 3; i++) {
-                var v = Random.Range(0,3);
-                voices[v].PlayDelayed(0.3f);
+            for (int i = 1; i < 3; i++) {
+                var v = Random.Range(1,3);
+                voices[v].PlayDelayed(0.25f);
             }
-       /*     voices[0].Play();
-            voices[1].PlayDelayed(0.39f);
-            voices[2].PlayDelayed(0.64f);
-            voices[3].PlayDelayed(0.9f);*/
         }
     }
     void OnTriggerExit2D(Collider2D coll) {
