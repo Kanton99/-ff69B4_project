@@ -33,4 +33,5 @@ public class InputControl : MonoBehaviour
         rigid.velocity = Vector3.zero;
       }
 
+    }
 }
