@@ -20,6 +20,7 @@ public class Movement : MonoBehaviour {
     private Rigidbody2D _rb;
     private GameObject _player;
 
+    public AudioSource[] voices = new AudioSource[4];
 
     private SpriteRenderer _sprite;
     private string player_tag = "Player";
@@ -65,6 +66,7 @@ public class Movement : MonoBehaviour {
         _offset = GetComponent<BoxCollider2D>().offset * transform.localScale.y;
         _sprite = GetComponentInChildren<SpriteRenderer>();
         _curr_state = State.IDLE;
+        voices = GetComponents<AudioSource>();
     }
 
     // Update is called once per frame
@@ -110,8 +112,16 @@ public class Movement : MonoBehaviour {
             cloud_anim.SetBool("Visible", true);
             _player = coll.gameObject;
             _curr_state = State.SUGG_DIALOG;
+             voices[0].Play();
+            for (int i = 0; i < 3; i++) {
+                var v = Random.Range(0,3);
+                voices[v].PlayDelayed(0.3f);
+            }
+       /*     voices[0].Play();
+            voices[1].PlayDelayed(0.39f);
+            voices[2].PlayDelayed(0.64f);
+            voices[3].PlayDelayed(0.9f);*/
         }
-
     }
     void OnTriggerExit2D(Collider2D coll) {
         if(coll.tag == player_tag) {
