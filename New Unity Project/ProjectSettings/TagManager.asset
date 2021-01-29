@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Soda
+  - Enemy
+  - Exit
+  - Food
+  - SpawnPoint
+  - Rooms
   layers:
   - Default
   - TransparentFX
