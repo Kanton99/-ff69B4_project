@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - NPC
   layers:
   - Default
   - TransparentFX
@@ -14,9 +15,9 @@ TagManager:
   - 
   - 
   - Main Character
-  - 
-  - 
-  - 
+  - NPC
+  - NPC Obstacles
+  - Dialog area
   - 
   - 
   - 
@@ -43,4 +44,7 @@ TagManager:
     locked: 0
   - name: MainChar
     uniqueID: 3732115903
+    locked: 0
+  - name: UI
+    uniqueID: 4015867453
     locked: 0
