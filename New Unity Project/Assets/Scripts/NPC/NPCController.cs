@@ -18,11 +18,12 @@ public class NPCController : MonoBehaviour {
 
     private Rigidbody2D _rb;
     private GameObject _player;
+    private AudioSource[] voices;
+    private SpriteRenderer _sprite;
+
     public Animator char_anim;
     public Animator cloud_anim;
     public Dialog dialog;
-
-    private SpriteRenderer _sprite;
 
     private void shuffle(Vector3[] array) {
       for(int i = 0; i < array.Length; i++) {
@@ -55,7 +56,6 @@ public class NPCController : MonoBehaviour {
     public void readyTalk(GameObject player) {
         char_anim.SetBool("Walk", false);
         cloud_anim.SetBool("Visible", true);
-        cloud_anim.Play("SuggestsDialog");
         _player = player;
         _rb.velocity = Vector3.zero;
         _curr_state = State.READY_TALK;
@@ -95,6 +95,7 @@ public class NPCController : MonoBehaviour {
         _directions[3] = new Vector3(1, 0, 0);
         _offset = GetComponent<BoxCollider2D>().offset * transform.localScale.y;
         _sprite = GetComponentInChildren<SpriteRenderer>();
+        voices = GetComponents<AudioSource>();
         _curr_state = State.IDLE;
     }
 

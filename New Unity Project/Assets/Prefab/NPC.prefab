@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 866862459320082397}
   - component: {fileID: 6825651758155094235}
   - component: {fileID: 2809767134062001203}
-  m_Layer: 9
+  m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -119,7 +119,7 @@ GameObject:
   - component: {fileID: 4083977220561627591}
   - component: {fileID: 6895853264483297438}
   - component: {fileID: 7563542603414225432}
-  m_Layer: 9
+  m_Layer: 5
   m_Name: DialogBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -164,7 +164,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
-  m_SortingLayerID: -279099843
+  m_SortingLayerID: -1275449431
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!114 &7544366510149499479
@@ -291,7 +291,7 @@ GameObject:
   - component: {fileID: 5657702435250229891}
   - component: {fileID: 8811336473592083677}
   - component: {fileID: 8619355912294803762}
-  m_Layer: 9
+  m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -426,7 +426,7 @@ GameObject:
   - component: {fileID: 3334900763769657935}
   - component: {fileID: 7150169536687639792}
   - component: {fileID: 253795347568467061}
-  m_Layer: 9
+  m_Layer: 5
   m_Name: Cloud
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -528,7 +528,7 @@ GameObject:
   - component: {fileID: 330291135086092228}
   - component: {fileID: 614902656027859484}
   - component: {fileID: 15442420447385969}
-  m_Layer: 9
+  m_Layer: 5
   m_Name: Name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -663,7 +663,7 @@ GameObject:
   - component: {fileID: 3161340271196216183}
   - component: {fileID: 3161340271196216176}
   - component: {fileID: 4811778899190937602}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: NPC
   m_TagString: NPC
   m_Icon: {fileID: 0}
@@ -766,7 +766,7 @@ GameObject:
   - component: {fileID: 3161340272478400883}
   - component: {fileID: 3161340272478400880}
   - component: {fileID: 3161340272478400882}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

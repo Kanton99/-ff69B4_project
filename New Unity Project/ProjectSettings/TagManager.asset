@@ -4,6 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - SpawnPoint
+  - Rooms
   - NPC
   layers:
   - Default
@@ -14,10 +16,10 @@ TagManager:
   - UI
   - 
   - 
-  - Main Character
   - NPC
-  - NPC Obstacles
-  - Dialog area
+  - Main character
+  - NPC obstacle
+  - 
   - 
   - 
   - 
@@ -43,8 +45,8 @@ TagManager:
     uniqueID: 0
     locked: 0
   - name: MainChar
-    uniqueID: 3732115903
+    uniqueID: 1830819703
     locked: 0
   - name: UI
-    uniqueID: 4015867453
+    uniqueID: 3019517865
     locked: 0
