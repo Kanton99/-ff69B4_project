@@ -12,28 +12,26 @@ public class RandomRoomGenerator : MonoBehaviour
     void Start()
     {
         List<Room> rooms = new List<Room>();
+        Dictionary<Vector3, Room> room_locations = new Dictionary<Vector3, Room>();
         room_template.transform.position = Vector3.up * 1000;
         rooms.Add(generate(room_template, starting_point, master_room));
+        room_locations[starting_point] = rooms[0];
 
         Debug.Log("Starting generating rooms!");
         for(int i = 0; i < num_rooms - 1; i++) {
             int rint = Random.Range(0, rooms.Count - 1);
-            // Debug.Log("We have " + rooms.Count + " rooms");
-            // Debug.Log("Choosen the room : " + rint);
             Room random_room = rooms[rint];
             Room.DoorType door_type = random_room.unavailable[Random.Range(0, random_room.unavailable.Count - 1)];
-            Room near = random_room.getNextRoom(door_type);
-            if(near == null) {
-                Debug.Log("Generating a new room!");
+            Vector3 position = random_room.transform.position + random_room.getSize() * random_room.directionOf(door_type);
+            if(!room_locations.ContainsKey(position)) {
                 Door random_door = random_room.doors[(int)door_type];
-                Vector3 position = random_room.transform.position + random_room.getSize() * random_room.directionOf(door_type);
                 Room room = generate(room_template, position, master_room);
                 random_room.setAvailable(door_type);
                 room.setAvailable(((int)door_type + 2)%4);
                 rooms.Add(room);
+                room_locations[room.gameObject.transform.position] = room;
             } else {
-                Debug.Log("Collided with : " + near.gameObject.name);
-                Debug.Log("Room present, so opening a door!");
+                Room near = room_locations[position];
                 random_room.setAvailable(door_type);
                 near.setAvailable(((int)door_type + 2)%4);
                 if(near.available.Count == 4)
@@ -44,7 +42,6 @@ public class RandomRoomGenerator : MonoBehaviour
                 rooms.Remove(random_room);
         }
         room_template.SetActive(false);
-        Debug.Log("Generation complete!");
     }
 
     private Room generate(GameObject room_template, Vector3 position, Transform parent) {

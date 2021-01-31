@@ -10,9 +10,7 @@ public class Room : MonoBehaviour
     public Door[] doors;
     public List<DoorType> available;
     public List<DoorType> unavailable;
-    public Transform center;
 
-    // Start is called before the first frame update
     void Start() {
         enabled = false;
     }
@@ -31,15 +29,6 @@ public class Room : MonoBehaviour
         new_door.setAvailable();
         available.Add((DoorType)door_type);
         unavailable.Remove((DoorType)door_type);
-    }
-
-    public Room getNextRoom(DoorType door_type) {
-        LayerMask mask = LayerMask.GetMask("Room space");
-        RaycastHit2D hit = Physics2D.Raycast(center.position + directionOf(door_type) * 5.2f, directionOf(door_type), getSize(), mask);
-        if (hit.collider == null)
-            return null;
-        else
-            return hit.collider.gameObject.transform.parent.GetComponent<Room>();
     }
 
     public Vector3 directionOf(DoorType door_type) {
