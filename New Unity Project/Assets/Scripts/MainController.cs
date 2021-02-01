@@ -12,7 +12,7 @@ public class MainController : MonoBehaviour
     public NPCController npc;
 
     public Vector2 direction;
-    public enum State {NORMAL, DEAD, SCRIPTED, READY_TALK, TALK};
+    public enum State {NORMAL, DEAD, SCRIPTED, READY_TALK, TALK, CHANGING_BAG};
     public State _curr_state;
 
     // Start is called before the first frame update
@@ -71,10 +71,22 @@ public class MainController : MonoBehaviour
         return _curr_state == State.READY_TALK || _curr_state == State.TALK;
     }
 
+    public void change_bag() {
+        if(Input.GetButtonDown("Fire2")) {
+            animator.SetTrigger("ChangeBag");
+            _curr_state = State.CHANGING_BAG;
+        }
+    }
+
+    private void change(State new_state) {
+        _curr_state = new_state;
+    }
+
     // Update is called once per frame
     void Update() {
         switch(_curr_state){
             case State.NORMAL:
+                change_bag();
                 move();
                 attack();
                 break;
@@ -85,6 +97,9 @@ public class MainController : MonoBehaviour
             case State.TALK:
                 stop();
                 talk();
+                break;
+            case State.CHANGING_BAG:
+                _curr_state = State.NORMAL;
                 break;
         }
     }

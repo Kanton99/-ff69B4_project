@@ -13,11 +13,9 @@ public class RandomRoomGenerator : MonoBehaviour
     {
         List<Room> rooms = new List<Room>();
         Dictionary<Vector3, Room> room_locations = new Dictionary<Vector3, Room>();
-        room_template.transform.position = Vector3.up * 1000;
         rooms.Add(generate(room_template, starting_point, master_room));
         room_locations[starting_point] = rooms[0];
 
-        Debug.Log("Starting generating rooms!");
         for(int i = 0; i < num_rooms - 1; i++) {
             int rint = Random.Range(0, rooms.Count - 1);
             Room random_room = rooms[rint];
@@ -30,6 +28,8 @@ public class RandomRoomGenerator : MonoBehaviour
                 room.setAvailable(((int)door_type + 2)%4);
                 rooms.Add(room);
                 room_locations[room.gameObject.transform.position] = room;
+                // Piazza oggetti ...
+                // Crea dati per la minimappa ...
             } else {
                 Room near = room_locations[position];
                 random_room.setAvailable(door_type);
@@ -50,9 +50,4 @@ public class RandomRoomGenerator : MonoBehaviour
         return room.GetComponent<Room>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 }
