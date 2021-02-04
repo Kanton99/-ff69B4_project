@@ -73,15 +73,26 @@ public class NPCController : MonoBehaviour {
         if(_curr_state != State.TALK) {
             _curr_state = State.TALK;
             dialog.animator.SetBool("IsOpen", true);
+            speak();
             return true;
         } else
-            if(dialog.next())
+            if(dialog.next()) {
+                speak();
                 return true;
+            }
             else {
                 dialog.animator.SetBool("IsOpen", false);
                 _curr_state = State.IDLE;
                 return false;
             }
+    }
+
+    private void speak() {
+        voices[0].Play();
+        for (int i = 0; i < 3; i++) {
+            var rand = Random.RandomRange(1, 3);
+            voices[rand].PlayDelayed(0.25f);
+        }
     }
 
     // Start is called before the first frame update

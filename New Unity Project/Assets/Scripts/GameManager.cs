@@ -50,7 +50,7 @@ public class GameManager : MonoBehaviour
         }
 
         RandomRoomGenerator generator = GameObject.FindWithTag("RoomGenerator").GetComponent<RandomRoomGenerator>();
-        Vector3 spawn_point = generator.generateRooms(5);
+        Vector3 spawn_point = generator.generateRooms(7);
         player.gameObject.transform.position = spawn_point;
 
         animator.SetBool("ChangingScene", false);

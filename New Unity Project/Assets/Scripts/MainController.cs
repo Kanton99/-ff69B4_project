@@ -73,8 +73,8 @@ public class MainController : MonoBehaviour
 
     public void change_bag() {
         if(Input.GetButtonDown("Fire2")) {
-            animator.SetTrigger("ChangeBag");
             _curr_state = State.CHANGING_BAG;
+            animator.SetTrigger("ChangeBag");
         }
     }
 
@@ -83,7 +83,7 @@ public class MainController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update() {
+    void FixedUpdate() {
         switch(_curr_state){
             case State.NORMAL:
                 change_bag();
@@ -99,7 +99,7 @@ public class MainController : MonoBehaviour
                 talk();
                 break;
             case State.CHANGING_BAG:
-                _curr_state = State.NORMAL;
+               change(State.NORMAL);
                 break;
         }
     }
