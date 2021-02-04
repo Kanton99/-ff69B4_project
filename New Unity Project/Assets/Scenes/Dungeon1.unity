@@ -292,10 +292,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8895178c9e4e859768e6b1dc511c7113, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  num_rooms: 5
+  num_rooms: 10
   room_template: {fileID: 1004905394470709603}
   starting_point: {x: 0, y: 0, z: 0}
   master_room: {fileID: 1649386482}
+  rooms: []
 --- !u!4 &1518752509
 Transform:
   m_ObjectHideFlags: 0
@@ -304,7 +305,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1518752507}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.562104, y: 0.9020877, z: -1.0885936}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
