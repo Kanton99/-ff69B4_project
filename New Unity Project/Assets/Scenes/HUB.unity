@@ -2720,6 +2720,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8699825923181142358, guid: f354166aa87498264b485ec7875c9c41, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8699825923493813752, guid: f354166aa87498264b485ec7875c9c41, type: 3}
       propertyPath: m_TileSpriteArray.Array.data[6].m_Data
       value: 

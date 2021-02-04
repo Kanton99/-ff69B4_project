@@ -14,7 +14,7 @@ public class RandomRoomGenerator : MonoBehaviour
 
     // Start is called before the first frame update
     void Start() { enabled = false;
-        generateRooms(num_rooms);
+        //generateRooms(100);
     }
 
     public Vector3 generateRooms(int rooms_num = 0) {
