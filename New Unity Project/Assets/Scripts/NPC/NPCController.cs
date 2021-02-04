@@ -36,9 +36,9 @@ public class NPCController : MonoBehaviour {
 
     private Vector3 first_available_direction() {
         foreach(Vector3 dir in _directions) {
-            Debug.DrawRay(transform.position + _offset + dir * 0.8f, dir * DIST_MOVEMENT, Color.red, 2);
-            if (!Physics2D.Raycast(transform.position + _offset + dir * 0.8f, dir, DIST_MOVEMENT)) {
-                Debug.DrawRay(transform.position + _offset + dir * 0.8f, dir * DIST_MOVEMENT, Color.green, 2, false);
+            Debug.DrawRay(transform.position + _offset, dir * DIST_MOVEMENT, Color.red, 2);
+            if (!Physics2D.Raycast(transform.position + _offset, dir, DIST_MOVEMENT)) {
+                Debug.DrawRay(transform.position + _offset, dir * DIST_MOVEMENT, Color.green, 2, false);
                 return dir;
             }
         }

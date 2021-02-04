@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Room : MonoBehaviour
 {
-    public enum Type {TREASURE, ENEMY, BOSS};
+    public Vector3 center;
     public enum DoorType {NORTH=0, EAST, SOUTH, WEST};
     public Door[] doors;
     public List<DoorType> available;
@@ -58,7 +58,7 @@ public class Room : MonoBehaviour
 
     //Hard coded because i can't find the number of cells in a grid.
     public float getSize() {
-        return 28.0f;
+        return 20.0f;
     }
 
 }

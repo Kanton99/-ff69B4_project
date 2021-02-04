@@ -7,6 +7,8 @@ TagManager:
   - SpawnPoint
   - Rooms
   - NPC
+  - GameManager
+  - RoomGenerator
   layers:
   - Default
   - TransparentFX
@@ -20,7 +22,7 @@ TagManager:
   - Main character
   - NPC obstacle
   - Indestructible Object
-  - 
+  - Main character event
   - 
   - 
   - 
