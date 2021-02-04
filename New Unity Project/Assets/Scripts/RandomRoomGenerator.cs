@@ -9,13 +9,16 @@ public class RandomRoomGenerator : MonoBehaviour
     public Vector3 starting_point = Vector3.zero;
     public Transform master_room;
 
+    [SerializeField]
+    List<Room> rooms = new List<Room>();
 
     // Start is called before the first frame update
-    void Start() { enabled = false; }
+    void Start() { enabled = false;
+        generateRooms(num_rooms);
+    }
 
-    public Vector3 generateRooms(int num_rooms = 0) {
-        if (num_rooms <= 0) num_rooms = this.num_rooms;
-        List<Room> rooms = new List<Room>();
+    public Vector3 generateRooms(int rooms_num = 0) {
+        if (num_rooms <= 0) rooms_num = this.num_rooms;
         Dictionary<Vector3, Room> room_locations = new Dictionary<Vector3, Room>();
         rooms.Add(generate(room_template, starting_point, master_room));
         room_locations[starting_point] = rooms[0];
