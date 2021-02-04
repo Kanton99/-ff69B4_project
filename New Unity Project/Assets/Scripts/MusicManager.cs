@@ -36,7 +36,7 @@ public class MusicManager : MonoBehaviour
         float speed = 0.05f;
         while(music.volume < 0.25) {
             music.volume += speed;
-            yield return new WaitForSeconds(0.05f);
+            yield return new WaitForSeconds(0.1f);
         }
     }
 }

@@ -90,8 +90,7 @@ public class NPCController : MonoBehaviour {
     private void speak() {
         voices[0].Play();
         for (int i = 0; i < 3; i++) {
-            var rand = Random.RandomRange(1, 3);
-            voices[rand].PlayDelayed(0.25f);
+            voices[Random.RandomRange(1, 4)].PlayDelayed(0.25f);
         }
     }
 

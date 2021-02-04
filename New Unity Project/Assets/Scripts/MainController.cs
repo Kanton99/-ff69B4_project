@@ -10,6 +10,7 @@ public class MainController : MonoBehaviour
     public SpriteRenderer body;
     public Rigidbody2D rigid;
     public NPCController npc;
+    public AudioSource[] swords; 
 
     public Vector2 direction;
     public enum State {NORMAL, DEAD, SCRIPTED, READY_TALK, TALK, CHANGING_BAG};
@@ -18,6 +19,7 @@ public class MainController : MonoBehaviour
     // Start is called before the first frame update
     void Start() {
         _curr_state = State.NORMAL;
+        swords = GetComponents<AudioSource>();
     }
 
     void move() {
@@ -42,8 +44,10 @@ public class MainController : MonoBehaviour
     }
 
     void attack() {
-        if(Input.GetButtonDown("Fire1"))
+        if(Input.GetButtonDown("Fire1")) {
             animator.SetTrigger("swing");
+            swords[Random.RandomRange(0,3)].Play();
+        }
     }
 
     void talk() {
