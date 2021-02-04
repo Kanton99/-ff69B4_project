@@ -10,7 +10,10 @@ public class SuggDialog : MonoBehaviour
     void OnTriggerEnter2D(Collider2D coll) {
         if(!player.isBusy()) {
             NPCController npc = coll.gameObject.GetComponent<NPCController>();
-            player.enterReadyTalk(npc);
+            if (npc != null)
+            {
+                player.enterReadyTalk(npc);
+            }
         }
 
     }

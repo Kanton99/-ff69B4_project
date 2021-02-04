@@ -57,6 +57,7 @@ public class MainController : MonoBehaviour
 
     public void enterReadyTalk(NPCController npc) {
         this.npc = npc;
+        Debug.Log(npc);
         npc.readyTalk(this.gameObject);
         _curr_state = State.READY_TALK;
     }
