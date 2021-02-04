@@ -13,9 +13,7 @@ public class RandomRoomGenerator : MonoBehaviour
     List<Room> rooms = new List<Room>();
 
     // Start is called before the first frame update
-    void Start() { enabled = false;
-        generateRooms(num_rooms);
-    }
+    void Start() { enabled = false;}
 
     public Vector3 generateRooms(int rooms_num = 0) {
         if (num_rooms <= 0) rooms_num = this.num_rooms;
