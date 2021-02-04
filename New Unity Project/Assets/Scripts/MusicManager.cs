@@ -11,11 +11,11 @@ public class MusicManager : MonoBehaviour
         backgroundmusic = GetComponent<AudioSource>();
         backgroundmusic.volume = 0;
         backgroundmusic.PlayDelayed(0.1f);
-        FadeIn(backgroundmusic);
+        StartCoroutine(FadeIn(backgroundmusic));
     }
 
-    public IEnumerator HubtoDungeon() {
-        return FadeOut(backgroundmusic);
+    public void HubtoDungeon() {
+        StartCoroutine(FadeOut(backgroundmusic));
     }
     /*
     public IEnumerator DungeontoHub() {
@@ -25,8 +25,8 @@ public class MusicManager : MonoBehaviour
         float speed = 0.05f;
         while(music.volume > 0) {
             music.volume -= speed;
-            yield return new WaitForSeconds(0.05f);
-            if (music.volume < 0.3) {
+            yield return new WaitForSeconds(0.1f);
+            if (music.volume < 0.2) {
                 music.Stop();
                 break;
             }
@@ -34,7 +34,7 @@ public class MusicManager : MonoBehaviour
     }
        private IEnumerator FadeIn(AudioSource music) {
         float speed = 0.05f;
-        while(music.volume < 1) {
+        while(music.volume < 0.5) {
             music.volume += speed;
             yield return new WaitForSeconds(0.05f);
         }
