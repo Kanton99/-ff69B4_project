@@ -22,11 +22,11 @@ public class MusicManager : MonoBehaviour
     }*/
 
     private IEnumerator FadeOut(AudioSource music) {
-        float speed = 0.05f;
+        float speed = 0.005f;
         while(music.volume > 0) {
             music.volume -= speed;
             yield return new WaitForSeconds(0.1f);
-            if (music.volume < 0.2) {
+            if (music.volume < 0.05) {
                 music.Stop();
                 break;
             }
@@ -34,7 +34,7 @@ public class MusicManager : MonoBehaviour
     }
        private IEnumerator FadeIn(AudioSource music) {
         float speed = 0.05f;
-        while(music.volume < 0.5) {
+        while(music.volume < 0.25) {
             music.volume += speed;
             yield return new WaitForSeconds(0.05f);
         }
