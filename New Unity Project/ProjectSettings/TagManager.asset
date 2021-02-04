@@ -4,12 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Soda
-  - Enemy
-  - Exit
-  - Food
   - SpawnPoint
   - Rooms
+  - NPC
   layers:
   - Default
   - TransparentFX
@@ -19,6 +16,10 @@ TagManager:
   - UI
   - 
   - 
+  - NPC
+  - Main character
+  - NPC obstacle
+  - Indestructible Object
   - Main Character
   - Minimap
   - 
@@ -48,5 +49,8 @@ TagManager:
     uniqueID: 0
     locked: 0
   - name: MainChar
-    uniqueID: 3732115903
+    uniqueID: 1830819703
+    locked: 0
+  - name: UI
+    uniqueID: 3019517865
     locked: 0

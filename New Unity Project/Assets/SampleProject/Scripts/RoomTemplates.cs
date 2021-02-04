@@ -20,6 +20,7 @@ public class RoomTemplates : MonoBehaviour {
 	void Update(){
 
 		if(waitTime <= 0 && spawnedBoss == false){
+			// Why are we looping? Shouldn't we take always the last room?! rooms.Count - 1
 			for (int i = 0; i < rooms.Count; i++) {
 				if(i == rooms.Count-1){
 					Instantiate(boss, rooms[i].transform.position, Quaternion.identity);
