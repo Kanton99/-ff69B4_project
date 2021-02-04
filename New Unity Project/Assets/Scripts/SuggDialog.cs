@@ -14,6 +14,7 @@ public class SuggDialog : MonoBehaviour
         }
 
     }
+    
     void OnTriggerExit2D(Collider2D coll) {
         if(coll.gameObject == player.npc.gameObject) {
             player.leaveReadyTalk();

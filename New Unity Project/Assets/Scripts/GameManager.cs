@@ -55,5 +55,4 @@ public class GameManager : MonoBehaviour
 
         animator.SetBool("ChangingScene", false);
     }
-
 }
