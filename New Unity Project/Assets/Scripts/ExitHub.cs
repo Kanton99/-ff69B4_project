@@ -13,6 +13,6 @@ public class ExitHub : MonoBehaviour
     void OnTriggerEnter2D(Collider2D col)
     {
         StartCoroutine(manager.loadDungeon());
-        StartCoroutine(music.HubtoDungeon());
+        music.HubtoDungeon();
     }
 }
