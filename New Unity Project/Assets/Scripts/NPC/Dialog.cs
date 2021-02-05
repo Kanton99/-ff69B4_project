@@ -50,7 +50,7 @@ public class Dialog : MonoBehaviour
     }
 
     private bool nextScreen() {
-        if(_idx >= dialog.Length)
+        if(_idx >= dialog.Length-1)
             return false;
         StopAllCoroutines();
         _idx++;
