@@ -6,7 +6,8 @@ public class NPCController : MonoBehaviour {
     public float TIMER;
     public float VELOCITY; // Velocita di movimento
     public float DIST_MOVEMENT;
-    public string char_name;
+    public bool IS_STATIONARY;
+
 
     public float _timer;
     private Vector3 _offset;
@@ -73,11 +74,9 @@ public class NPCController : MonoBehaviour {
         if(_curr_state != State.TALK) {
             _curr_state = State.TALK;
             dialog.animator.SetBool("IsOpen", true);
-            speak();
             return true;
         } else
             if(dialog.next()) {
-                speak();
                 return true;
             }
             else {
@@ -87,12 +86,17 @@ public class NPCController : MonoBehaviour {
             }
     }
 
-    private void speak() {
-        voices[0].Play();
-        for (int i = 0; i < 3; i++) {
-            var rand = Random.RandomRange(1, 3);
-            voices[rand].PlayDelayed(0.25f);
-        }
+    public void speak(int i) {
+        if(!voices[i].isPlaying)
+            voices[i].PlayDelayed(0.10f);
+        //for (int i = 0; i < 3; i++) {
+            //var rand = Random.RandomRange(1, 3);
+            //voices[rand].PlayDelayed(0.25f);
+        //}
+    }
+
+    public void randomSpeak() {
+        speak(Random.RandomRange(1, 3));
     }
 
     // Start is called before the first frame update
@@ -114,7 +118,7 @@ public class NPCController : MonoBehaviour {
     void Update() {
       switch(_curr_state) {
         case State.IDLE:
-            _timer -= Time.deltaTime;
+            if (!IS_STATIONARY) _timer -= Time.deltaTime;
             if(_timer < 0) {
                 shuffle(_directions);
                 _curr_direction = first_available_direction();

@@ -20,7 +20,7 @@ public class Dialog : MonoBehaviour
     void Start()
     {
         dialog_text.text = "";
-        name_text.text = npc.char_name;
+        name_text.text = npc.gameObject.name;
         _idx = 0;
         _is_typing = false;
         enabled = false;
@@ -50,7 +50,7 @@ public class Dialog : MonoBehaviour
     }
 
     private bool nextScreen() {
-        if(_idx >= dialog.Length)
+        if(_idx + 1 >= dialog.Length)
             return false;
         StopAllCoroutines();
         _idx++;
@@ -62,6 +62,7 @@ public class Dialog : MonoBehaviour
         _is_typing = true;
         dialog_text.text = "";
         foreach(char ele in text.ToCharArray()) {
+            npc.randomSpeak();
             dialog_text.text += ele;
             yield return new WaitForSeconds(1 / scrolling_speed);
         }

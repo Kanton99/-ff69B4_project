@@ -12,7 +12,7 @@ public class MainController : MonoBehaviour
     public NPCController npc;
 
     public Vector2 direction;
-    public enum State {NORMAL, DEAD, SCRIPTED, READY_TALK, TALK, CHANGING_BAG};
+    public enum State {NORMAL, DEAD, READY_TALK, TALK, CHANGING_BAG};
     public State _curr_state;
 
     // Start is called before the first frame update
@@ -83,7 +83,7 @@ public class MainController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate() {
+    void Update() {
         switch(_curr_state){
             case State.NORMAL:
                 change_bag();
