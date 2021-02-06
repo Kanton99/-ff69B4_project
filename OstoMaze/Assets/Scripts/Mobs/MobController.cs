@@ -20,6 +20,7 @@ public class MobController : MonoBehaviour
     private GameObject _player;
     private AudioSource[] attacksounds;
     private SpriteRenderer _sprite;
+    public GameObject projectile;
 
     public enum State {IDLE, MOVING, ATTACKING};
     public State _curr_state;
@@ -67,6 +68,7 @@ public class MobController : MonoBehaviour
     private void Attack()
     {
         attacksounds[Random.RandomRange(0, 2)].Play();
+        projectile = Instantiate(projectile, this.transform);
     }
 
     private void Move()
@@ -88,7 +90,7 @@ public class MobController : MonoBehaviour
         _directions[2] = new Vector3(-1, 0, 0);
         _directions[3] = new Vector3(1, 0, 0);
         _offset = GetComponent<BoxCollider2D>().offset * transform.localScale.y;
-        _sprite = GetComponentInChildren<SpriteRenderer>();
+        _sprite = GetComponent<SpriteRenderer>();
         attacksounds = GetComponents<AudioSource>();
         _curr_state = State.IDLE;
     }
