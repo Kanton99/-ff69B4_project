@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: 7319607558418782523}
   m_Layer: 9
   m_Name: Bran
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -218,6 +218,7 @@ MonoBehaviour:
   body: {fileID: 566907886323556801}
   rigid: {fileID: 566907886557116031}
   npc: {fileID: 0}
+  mob: {fileID: 0}
   swords: []
   direction: {x: 0, y: 0}
   _curr_state: 0

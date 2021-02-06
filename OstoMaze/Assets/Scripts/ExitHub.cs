@@ -5,14 +5,12 @@ using UnityEngine;
 public class ExitHub : MonoBehaviour
 {
     public GameManager manager;
-    public MusicManager music;
 
     // Start is called before the first frame update
     void Start() {}
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        StartCoroutine(manager.loadDungeon());
-        music.HubtoDungeon();
+        manager.curr_state = GameManager.State.TO_DUNGEON;
     }
 }

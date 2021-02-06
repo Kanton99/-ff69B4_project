@@ -10,6 +10,8 @@ TagManager:
   - GameManager
   - RoomGenerator
   - Mob
+  - GameData
+  - MusicManager
   layers:
   - Default
   - TransparentFX
