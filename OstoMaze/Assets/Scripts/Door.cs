@@ -6,7 +6,7 @@ public class Door : MonoBehaviour
 {
     public GameObject wall;
     public GameObject door;
-    private Animator _door_anim;
+    public Animator _door_anim;
 
     // Disable the update callback
     void Start() {

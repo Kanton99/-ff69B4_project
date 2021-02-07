@@ -48,6 +48,7 @@ public class RandomRoomGenerator : MonoBehaviour
                 rooms.Remove(extend_room);
         }
         room_template.SetActive(false);
+
         return spawn_point;
     }
 
