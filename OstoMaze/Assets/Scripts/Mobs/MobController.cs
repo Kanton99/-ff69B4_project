@@ -66,7 +66,7 @@ public class MobController : MonoBehaviour
 
     private void Attack()
     {
-       // attacksounds[Random.RandomRange(0, 3)].Play();
+        attacksounds[Random.RandomRange(0, 2)].Play();
     }
 
     private void Move()
@@ -92,29 +92,6 @@ public class MobController : MonoBehaviour
         attacksounds = GetComponents<AudioSource>();
         _curr_state = State.IDLE;
     }
-
-    /*
-    // Update is called once per frame
-    void Update()
-    {
-        switch (_curr_state)
-        {
-            case State.IDLE:
-                if (checkrange()) {
-                    _curr_state = State.MOVING;
-                   // mob_anim.SetBool("Walk", true);
-                }
-                break;
-            case State.MOVING:
-                Move();
-        //        mob_anim.SetBool("Walk", false);
-                _curr_state = State.IDLE;
-                break;
-            case State.ATTACKING:
-                Attack();
-                break;
-        }
-    }*/
 
     // Update is called once per frame
     void FixedUpdate() {
@@ -150,7 +127,6 @@ public class MobController : MonoBehaviour
                     _sprite.flipX = true;
                 if(Vector3.Dot(transform.position - _player.transform.position, transform.right) < 0)
                     _sprite.flipX = false;
-                Attack();
                 break;
         }
     }
