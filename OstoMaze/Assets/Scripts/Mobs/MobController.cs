@@ -20,6 +20,8 @@ public class MobController : MonoBehaviour
     private GameObject _player;
     private AudioSource[] attacksounds;
     private SpriteRenderer _sprite;
+    private Projectile _projectile;
+    public Transform projectile_spawn;
 
     public enum State {IDLE, MOVING, ATTACKING};
     public State _curr_state;
@@ -57,8 +59,6 @@ public class MobController : MonoBehaviour
     }
 
     public void leaveRange() {
-      /* if(_curr_state != State.ATTACKING)
-            return;*/
         mob_anim.SetBool("attack", false); 
         mob_anim.SetBool("walk", false);
         _curr_state = State.IDLE;
@@ -66,7 +66,12 @@ public class MobController : MonoBehaviour
 
     private void Attack()
     {
-       // attacksounds[Random.RandomRange(0, 3)].Play();
+        attacksounds[Random.RandomRange(0, 2)].Play();
+    //    Quaternion rotation;
+        _projectile = Instantiate(this._projectile, this.transform.position, new Quaternion(0,0,0,0));
+        _projectile.transform.parent = null;
+        _projectile.Initialize();
+        _projectile.Shoot(this.transform.position, _player.transform.position);
     }
 
     private void Move()
@@ -88,33 +93,11 @@ public class MobController : MonoBehaviour
         _directions[2] = new Vector3(-1, 0, 0);
         _directions[3] = new Vector3(1, 0, 0);
         _offset = GetComponent<BoxCollider2D>().offset * transform.localScale.y;
-        _sprite = GetComponentInChildren<SpriteRenderer>();
+        _sprite = GetComponent<SpriteRenderer>();
         attacksounds = GetComponents<AudioSource>();
         _curr_state = State.IDLE;
+        _projectile = Resources.Load<Projectile>("Projectile");
     }
-
-    /*
-    // Update is called once per frame
-    void Update()
-    {
-        switch (_curr_state)
-        {
-            case State.IDLE:
-                if (checkrange()) {
-                    _curr_state = State.MOVING;
-                   // mob_anim.SetBool("Walk", true);
-                }
-                break;
-            case State.MOVING:
-                Move();
-        //        mob_anim.SetBool("Walk", false);
-                _curr_state = State.IDLE;
-                break;
-            case State.ATTACKING:
-                Attack();
-                break;
-        }
-    }*/
 
     // Update is called once per frame
     void FixedUpdate() {
@@ -150,7 +133,6 @@ public class MobController : MonoBehaviour
                     _sprite.flipX = true;
                 if(Vector3.Dot(transform.position - _player.transform.position, transform.right) < 0)
                     _sprite.flipX = false;
-                Attack();
                 break;
         }
     }

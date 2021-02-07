@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Idle
+  m_Name: SphereIdle
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -21,25 +21,25 @@ AnimationClip:
   - curve:
     - time: 0
       value: {fileID: 6977829799311990860, guid: d2516daad0c07f7dd9ef51c06152942c, type: 3}
-    - time: 0.109375
+    - time: 0.11666667
       value: {fileID: -5859840161026129408, guid: d2516daad0c07f7dd9ef51c06152942c, type: 3}
-    - time: 0.203125
+    - time: 0.21666667
       value: {fileID: -3943510523025101639, guid: d2516daad0c07f7dd9ef51c06152942c, type: 3}
-    - time: 0.3125
+    - time: 0.33333334
       value: {fileID: 3447569243467961899, guid: d2516daad0c07f7dd9ef51c06152942c, type: 3}
-    - time: 0.421875
+    - time: 0.45
       value: {fileID: 8643040676318551613, guid: d2516daad0c07f7dd9ef51c06152942c, type: 3}
-    - time: 0.53125
+    - time: 0.56666666
       value: {fileID: -1249920818312157718, guid: d2516daad0c07f7dd9ef51c06152942c, type: 3}
-    - time: 0.625
+    - time: 0.6666667
       value: {fileID: 7703698693282308037, guid: d2516daad0c07f7dd9ef51c06152942c, type: 3}
-    - time: 0.71875
+    - time: 0.76666665
       value: {fileID: 7703698693282308037, guid: d2516daad0c07f7dd9ef51c06152942c, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
-  m_SampleRate: 64
+  m_SampleRate: 60
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -67,7 +67,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.734375
+    m_StopTime: 0.7833333
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
