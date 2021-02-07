@@ -2548,7 +2548,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1188882209645530777, guid: f354166aa87498264b485ec7875c9c41, type: 3}
       propertyPath: m_Size.y
-      value: 2
+      value: 1.9999924
       objectReference: {fileID: 0}
     - target: {fileID: 1188882209645530777, guid: f354166aa87498264b485ec7875c9c41, type: 3}
       propertyPath: m_Offset.x
@@ -2556,7 +2556,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1188882209645530777, guid: f354166aa87498264b485ec7875c9c41, type: 3}
       propertyPath: m_Offset.y
-      value: 0
+      value: -2.7092056
       objectReference: {fileID: 0}
     - target: {fileID: 8258795421592665897, guid: f354166aa87498264b485ec7875c9c41, type: 3}
       propertyPath: m_RootOrder
@@ -3194,7 +3194,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1692553464}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: de7eb0d7f6236e74e937fb606ba9c9d3, type: 3}
   m_Name: 

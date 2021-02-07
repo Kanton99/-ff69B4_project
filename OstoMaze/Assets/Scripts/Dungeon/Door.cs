@@ -6,7 +6,7 @@ public class Door : MonoBehaviour
 {
     public GameObject wall;
     public GameObject door;
-    private Animator _door_anim;
+    public Animator _door_anim;
 
     // Disable the update callback
     void Start() {
@@ -26,9 +26,10 @@ public class Door : MonoBehaviour
     }
 
     public void open() {
-        _door_anim.SetBool("isOpen", true);
+        _door_anim.SetBool("IsOpen", true);
     }
+
     public void close() {
-        _door_anim.SetBool("isOpen", false);
+        _door_anim.SetBool("IsOpen", false);
     }
 }

@@ -10,10 +10,10 @@ public class Room : MonoBehaviour
     public Door[] doors;
     public List<DoorType> available;
     public List<DoorType> unavailable;
+    public Transform enemies;
 
-    void Start() {
-        enabled = false;
-    }
+    public enum State {UNEXPLORED, TO_FIGHT, FIGHT, TO_CLEARED, CLEARED};
+    public State curr_state;
 
     public void setAvailable(DoorType door_type) {
         Door new_door = doors[(int)door_type];
@@ -48,7 +48,6 @@ public class Room : MonoBehaviour
     public void openDoors() {
         foreach(DoorType type in available)
             doors[(int)type].open();
-
     }
 
     public void closeDoors() {
@@ -59,6 +58,34 @@ public class Room : MonoBehaviour
     //Hard coded because i can't find the number of cells in a grid.
     public float getSize() {
         return 20.0f;
+    }
+
+    void Start () {
+        curr_state = State.UNEXPLORED;
+    }
+
+    void Update () {
+        switch (curr_state) {
+            case State.UNEXPLORED:
+                break;
+            case State.TO_FIGHT:
+                if (enemies.childCount == 0)
+                    curr_state = State.CLEARED;
+                    break;
+                closeDoors();
+                curr_state = State.FIGHT;
+                break;
+            case State.FIGHT:
+                if (enemies.childCount == 0)
+                    curr_state = State.TO_CLEARED;
+                    break;
+            case State.TO_CLEARED:
+                openDoors();
+                curr_state = State.CLEARED;
+                break;
+            case State.CLEARED:
+                break;
+        }
     }
 
 }
