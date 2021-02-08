@@ -8,12 +8,19 @@ public class RandomRoomGenerator : MonoBehaviour
     public GameObject[] obstacles;
     public Vector3 starting_point = Vector3.zero;
     public Transform master_room;
+    public GameObject bossIcon;
 
     [SerializeField]
     List<Room> rooms = new List<Room>();
 
     // Start is called before the first frame update
+<<<<<<< HEAD:OstoMaze/Assets/Scripts/Dungeon/RandomRoomGenerator.cs
     void Start() { enabled = false; }
+=======
+    void Start() { enabled = false;
+        //generateRooms(num_rooms);
+    }
+>>>>>>> 3cfa53492fdbbe29aafe97f54266e1e753453501:OstoMaze/Assets/Scripts/RandomRoomGenerator.cs
 
     public Vector3 generateRooms(int num_rooms = 0) {
         Dictionary<Vector3, Room> room_locations = new Dictionary<Vector3, Room>();
@@ -46,6 +53,9 @@ public class RandomRoomGenerator : MonoBehaviour
                 rooms.Remove(extend_room);
         }
         room_template.SetActive(false);
+        Vector2 b_pos = rooms[rooms.Count - 1].transform.position+ rooms[rooms.Count - 1].center;
+        GameObject boss = Instantiate(bossIcon, b_pos, Quaternion.identity);
+        boss.SetActive(true);
         return spawn_point;
     }
 
