@@ -10,6 +10,7 @@ TagManager:
   - GameManager
   - RoomGenerator
   - Mob
+  - NoCollision
   layers:
   - Default
   - TransparentFX
@@ -27,7 +28,7 @@ TagManager:
   - Main Character
   - Minimap
   - Mob
-  - 
+  - NoCollision
   - 
   - 
   - 

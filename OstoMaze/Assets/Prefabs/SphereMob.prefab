@@ -339,6 +339,7 @@ MonoBehaviour:
   char_name: sphere
   _timer: 0
   mob_anim: {fileID: 647175262839872107}
+  projectile: {fileID: 2632994513585494328, guid: b3506cb7981cea9458c62cbfea9c05e3, type: 3}
   _curr_state: 0
 --- !u!61 &5189304570023481224
 BoxCollider2D:
