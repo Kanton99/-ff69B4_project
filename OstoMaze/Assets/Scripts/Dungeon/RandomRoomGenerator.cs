@@ -68,6 +68,5 @@ public class RandomRoomGenerator : MonoBehaviour
     private void connectRooms(Room room1, Room room2, Room.DoorType door_type1) {
         room1.setAvailable(door_type1);
         room2.setAvailable(((int)door_type1 + 2)%4);
-        Debug.Log("Opening doors");
     }
 }
