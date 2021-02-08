@@ -8,7 +8,7 @@ public class SuggDialog : MonoBehaviour
     public MainController player;
 
     void OnTriggerEnter2D(Collider2D coll) {
-        Debug.Log("Entering");
+        //Debug.Log("Entering");
         if(!player.isBusy()) {
             NPCController npc = coll.gameObject.GetComponent<NPCController>();
             if (npc != null)
