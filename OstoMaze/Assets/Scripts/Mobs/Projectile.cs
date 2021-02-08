@@ -10,6 +10,7 @@ public class Projectile: MonoBehaviour
 
     public float VELOCITY;
     public float DIST_MOVEMENT;
+    public float timer;
 
     private Vector3 _offset;
     private Vector3[] _directions = new Vector3[4];
@@ -30,13 +31,15 @@ public class Projectile: MonoBehaviour
         _sprite = GetComponent<SpriteRenderer>();
         impactsounds = GetComponents<AudioSource>();
     }
-
+    
     void OnTriggerEnter2D(Collider2D coll)
     {
         Destroy(this.gameObject);
     }
 
     void Update() {
-        _rb.velocity = _curr_direction * VELOCITY;
+        _rb.velocity = (_direction - _curr_direction).normalized * VELOCITY;
+        if (timer < 0) Destroy(this.gameObject);
+        timer -= Time.deltaTime;
     }
 }

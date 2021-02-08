@@ -21,7 +21,6 @@ public class MobController : MonoBehaviour
     private AudioSource[] attacksounds;
     private SpriteRenderer _sprite;
     private Projectile _projectile;
-    public Transform projectile_spawn;
 
     public enum State {IDLE, MOVING, ATTACKING};
     public State _curr_state;
@@ -68,10 +67,10 @@ public class MobController : MonoBehaviour
     {
         attacksounds[Random.RandomRange(0, 2)].Play();
     //    Quaternion rotation;
-        _projectile = Instantiate(this._projectile, this.transform.position, new Quaternion(0,0,0,0));
-        _projectile.transform.parent = null;
-        _projectile.Initialize();
-        _projectile.Shoot(this.transform.position, _player.transform.position);
+        Projectile projectile = Instantiate(this._projectile, this.transform.position, new Quaternion(0,0,0,0));
+        projectile.transform.parent = null;
+        projectile.Initialize();
+        projectile.Shoot(this.transform.position, _player.transform.position);
     }
 
     private void Move()

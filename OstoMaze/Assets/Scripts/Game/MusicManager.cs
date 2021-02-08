@@ -10,7 +10,7 @@ public class MusicManager : MonoBehaviour
     {
         backgroundmusic = GetComponent<AudioSource>();
         backgroundmusic.volume = 0;
-        backgroundmusic.PlayDelayed(0.1f);
+        backgroundmusic.PlayDelayed(0.2f);
         StartCoroutine(FadeIn(backgroundmusic));
     }
 
@@ -34,7 +34,7 @@ public class MusicManager : MonoBehaviour
     }
        private IEnumerator FadeIn(AudioSource music) {
         float speed = 0.05f;
-        while(music.volume < 0.25) {
+        while(music.volume < 0.2) {
             music.volume += speed;
             yield return new WaitForSeconds(0.1f);
         }
