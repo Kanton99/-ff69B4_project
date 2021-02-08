@@ -59,7 +59,7 @@ public class MobController : MonoBehaviour
     }
 
     public void leaveRange() {
-        mob_anim.SetBool("attack", false);
+        mob_anim.SetBool("attack", false); 
         mob_anim.SetBool("walk", false);
         _curr_state = State.IDLE;
     }
