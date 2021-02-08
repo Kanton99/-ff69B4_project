@@ -51,7 +51,7 @@ public class MobController : MonoBehaviour
     }
 
     public void enterRange(GameObject player) {
-        mob_anim.SetBool("attack", true); 
+        mob_anim.SetBool("attack", true);
         mob_anim.SetBool("walk", false);
         _player = player;
         _rb.velocity = Vector3.zero;
@@ -100,7 +100,7 @@ public class MobController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate() {
+    void Update() {
         switch(_curr_state) {
             case State.IDLE:
                 _timer -= Time.deltaTime;

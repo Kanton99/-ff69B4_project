@@ -10,6 +10,8 @@ TagManager:
   - GameManager
   - RoomGenerator
   - Mob
+  - GameData
+  - MusicManager
   - NoCollision
   layers:
   - Default
@@ -28,6 +30,7 @@ TagManager:
   - Main Character
   - Minimap
   - Mob
+  - Main Collider
   - NoCollision
   - 
   - 

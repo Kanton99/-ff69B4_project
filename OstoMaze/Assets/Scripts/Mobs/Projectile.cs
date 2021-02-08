@@ -15,27 +15,9 @@ public class Projectile: MonoBehaviour
     private Vector3[] _directions = new Vector3[4];
     private Vector3 _curr_direction = Vector3.zero;
 
-    /*
-    public Projectile() {}
-
-    public Projectile(MobController mob, Vector3 direction) {
-        _direction = direction;
-        transform.position = mob.transform.position;
-        Initialize();
-    }
-    
-    public void Dispose() {
-        // perform clean up
-        // tell the GC not to finailze
-        GC.SuppressFinalize(this);
-    }
-    */
-
     public void Shoot(Vector3 curr_dir, Vector3 direction) {
-        _curr_direction = curr_dir;
-        _direction = direction;
-        //Vector2 dir = new Vector2(_direction.x, _direction.y);
-        //_rb.AddForce(dir * 20f);
+        _curr_direction = curr_dir; // Position MOB
+        _direction = direction;  // Position dir
     }
 
     public void Initialize() {
@@ -51,15 +33,10 @@ public class Projectile: MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D coll)
     {
-        /*
-            print("new collision\n");
-            VELOCITY = 0f;
-        */
+        Destroy(this.gameObject);
     }
-    
+
     void Update() {
-        Physics2D.Raycast(transform.position + _offset, _direction, DIST_MOVEMENT);
         _rb.velocity = _curr_direction * VELOCITY;
-        //this.Dispose();
     }
 }
