@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/HUB.unity
+    path: Assets/Scenes/HUB_mio.unity
     guid: 6b8d901aebb6d2b85b04d003b4ba5f50
   - enabled: 1
     path: Assets/Scenes/Dungeon1.unity

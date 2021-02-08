@@ -67,6 +67,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wall: {fileID: 5328740592002516390}
   door: {fileID: 5214382427394767643}
+  _door_anim: {fileID: 8514014092873725669}
 --- !u!1 &825040870514841743
 GameObject:
   m_ObjectHideFlags: 0
@@ -1232,6 +1233,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 692b7f62f81deab989e98143cfec24e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  center: {x: 0, y: 0, z: 0}
   doors:
   - {fileID: 8472516716893233760}
   - {fileID: 1074524112309025982}
@@ -6690,6 +6692,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wall: {fileID: 1113281106472531551}
   door: {fileID: 825040870514841743}
+  _door_anim: {fileID: 3563373913925406193}
 --- !u!1 &3155090005077447166
 GameObject:
   m_ObjectHideFlags: 0
@@ -6757,6 +6760,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wall: {fileID: 4105200930807122483}
   door: {fileID: 3846876636167617260}
+  _door_anim: {fileID: 2203510592769712778}
 --- !u!1 &3846876636167617260
 GameObject:
   m_ObjectHideFlags: 0
@@ -7846,7 +7850,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 43a0a4ad0c9ff59498b5a4cd3852887d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8894,6 +8898,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wall: {fileID: 1287976305726397147}
   door: {fileID: 1150152112809799285}
+  _door_anim: {fileID: 5153414363608306196}
 --- !u!95 &5153414363608306196
 Animator:
   serializedVersion: 3

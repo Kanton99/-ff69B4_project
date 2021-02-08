@@ -8,12 +8,15 @@ public class RandomRoomGenerator : MonoBehaviour
     public GameObject room_template;
     public Vector3 starting_point = Vector3.zero;
     public Transform master_room;
+    public GameObject bossIcon;
 
     [SerializeField]
     List<Room> rooms = new List<Room>();
 
     // Start is called before the first frame update
-    void Start() { enabled = false;}
+    void Start() { enabled = false;
+        //generateRooms(num_rooms);
+    }
 
     public Vector3 generateRooms(int rooms_num = 0) {
         if (num_rooms <= 0) rooms_num = this.num_rooms;
@@ -48,6 +51,9 @@ public class RandomRoomGenerator : MonoBehaviour
                 rooms.Remove(extend_room);
         }
         room_template.SetActive(false);
+        Vector2 b_pos = rooms[rooms.Count - 1].transform.position+ rooms[rooms.Count - 1].center;
+        GameObject boss = Instantiate(bossIcon, b_pos, Quaternion.identity);
+        boss.SetActive(true);
         return spawn_point;
     }
 
