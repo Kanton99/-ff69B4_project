@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5804513368571813223}
+  - component: {fileID: 9118499844605194266}
   m_Layer: 0
   m_Name: Obstacles 3
   m_TagString: Untagged
@@ -35,6 +36,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!156049354 &9118499844605194266
+Grid:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 965916853819570450}
+  m_Enabled: 1
+  m_CellSize: {x: 1, y: 1, z: 1}
+  m_CellGap: {x: 0, y: 0, z: 0}
+  m_CellLayout: 0
+  m_CellSwizzle: 0
 --- !u!1 &6080309774866242645
 GameObject:
   m_ObjectHideFlags: 0
@@ -144,7 +157,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -168,7 +181,7 @@ GameObject:
   - component: {fileID: 265031386667876540}
   - component: {fileID: 7705329689708284367}
   - component: {fileID: 6059333185351548920}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Water
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -594,7 +607,7 @@ CompositeCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_GeometryType: 0
+  m_GeometryType: 1
   m_GenerationType: 0
   m_EdgeRadius: 0
   m_ColliderPaths:
@@ -714,7 +727,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 830651600856536598, guid: f94471673157faafe95b4191b31ac9e6, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.053440094
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 830651600856536598, guid: f94471673157faafe95b4191b31ac9e6, type: 3}
       propertyPath: m_LocalRotation.w
@@ -742,6 +755,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 830651600856536598, guid: f94471673157faafe95b4191b31ac9e6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1642291231539052406, guid: f94471673157faafe95b4191b31ac9e6, type: 3}
+      propertyPath: m_Simulated
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5264624592707969768, guid: f94471673157faafe95b4191b31ac9e6, type: 3}
@@ -776,7 +793,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 830651600856536598, guid: f94471673157faafe95b4191b31ac9e6, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.053440094
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 830651600856536598, guid: f94471673157faafe95b4191b31ac9e6, type: 3}
       propertyPath: m_LocalRotation.w
@@ -804,6 +821,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 830651600856536598, guid: f94471673157faafe95b4191b31ac9e6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1642291231539052406, guid: f94471673157faafe95b4191b31ac9e6, type: 3}
+      propertyPath: m_Simulated
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5264624592707969768, guid: f94471673157faafe95b4191b31ac9e6, type: 3}
@@ -838,7 +859,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 830651600856536598, guid: f94471673157faafe95b4191b31ac9e6, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.053440094
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 830651600856536598, guid: f94471673157faafe95b4191b31ac9e6, type: 3}
       propertyPath: m_LocalRotation.w
@@ -866,6 +887,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 830651600856536598, guid: f94471673157faafe95b4191b31ac9e6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1642291231539052406, guid: f94471673157faafe95b4191b31ac9e6, type: 3}
+      propertyPath: m_Simulated
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5264624592707969768, guid: f94471673157faafe95b4191b31ac9e6, type: 3}

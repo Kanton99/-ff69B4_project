@@ -14,13 +14,7 @@ public class RandomRoomGenerator : MonoBehaviour
     List<Room> rooms = new List<Room>();
 
     // Start is called before the first frame update
-<<<<<<< HEAD:OstoMaze/Assets/Scripts/Dungeon/RandomRoomGenerator.cs
     void Start() { enabled = false; }
-=======
-    void Start() { enabled = false;
-        //generateRooms(num_rooms);
-    }
->>>>>>> 3cfa53492fdbbe29aafe97f54266e1e753453501:OstoMaze/Assets/Scripts/RandomRoomGenerator.cs
 
     public Vector3 generateRooms(int num_rooms = 0) {
         Dictionary<Vector3, Room> room_locations = new Dictionary<Vector3, Room>();
@@ -74,6 +68,6 @@ public class RandomRoomGenerator : MonoBehaviour
     private void connectRooms(Room room1, Room room2, Room.DoorType door_type1) {
         room1.setAvailable(door_type1);
         room2.setAvailable(((int)door_type1 + 2)%4);
+        Debug.Log("Opening doors");
     }
-
 }

@@ -69,9 +69,10 @@ public class Room : MonoBehaviour
             case State.UNEXPLORED:
                 break;
             case State.TO_FIGHT:
-                if (enemies.childCount == 0)
+                if (enemies.childCount == 0) {
                     curr_state = State.CLEARED;
                     break;
+                }
                 closeDoors();
                 curr_state = State.FIGHT;
                 break;
