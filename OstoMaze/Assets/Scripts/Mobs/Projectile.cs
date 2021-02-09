@@ -6,6 +6,7 @@ public class Projectile: MonoBehaviour
 {
     private Rigidbody2D _rb;
     private AudioSource[] impactsounds;
+    private int size;
     private int index;
     private SpriteRenderer _sprite;
     private Vector3 _direction;
@@ -36,7 +37,7 @@ public class Projectile: MonoBehaviour
     void OnTriggerEnter2D(Collider2D coll)
     {
         has_hit = true;
-        index = Random.RandomRange(0,6);
+        index = Random.RandomRange(0, impactsounds.Length);
         impactsounds[index].Play();
         _sprite.enabled = false;
     }
