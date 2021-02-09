@@ -125,7 +125,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   VELOCITY: 4
   DIST_MOVEMENT: 1
-  timer: 2
+  timer: 3
 --- !u!50 &3545938745049859464
 Rigidbody2D:
   serializedVersion: 4

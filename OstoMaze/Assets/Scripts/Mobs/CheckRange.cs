@@ -23,7 +23,6 @@ public class CheckRange : MonoBehaviour
         {
             if (coll.gameObject == mob.getPlayer())
             {
-                Debug.Log("Leave range");
                 mob.leaveRange();
             }
         }

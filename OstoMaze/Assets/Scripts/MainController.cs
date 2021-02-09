@@ -7,11 +7,12 @@ public class MainController : MonoBehaviour
     public float moving_speed;
     public Animator animator;
     public SpriteRenderer arms;
+    public SpriteRenderer bow;
     public SpriteRenderer body;
     public Rigidbody2D rigid;
     public NPCController npc;
-    public MobController mob;
-    public AudioSource[] swords;
+    public Swords swords;
+    public Bows bows;
 
     public Vector2 direction;
     public enum State {NORMAL, DEAD, SCRIPTED, READY_TALK, TALK, CHANGING_BAG};
@@ -26,7 +27,6 @@ public class MainController : MonoBehaviour
     // Start is called before the first frame update
     void Start() {
         _curr_state = State.NORMAL;
-        swords = GetComponents<AudioSource>();
     }
 
     void move() {
@@ -40,6 +40,7 @@ public class MainController : MonoBehaviour
                 flip = false;
             arms.flipX = flip;
             body.flipX = flip;
+            bow.flipX = flip;
             rigid.velocity = moving_speed * direction;
           } else
             stop();
@@ -53,7 +54,8 @@ public class MainController : MonoBehaviour
     void attack() {
         if(Input.GetButtonDown("Fire1")) {
             animator.SetTrigger("swing");
-            swords[Random.Range(0,3)].Play();
+            if (animator.GetBool("sword")) swords.Attack();
+            else bows.Attack();
         }
     }
 
@@ -66,30 +68,25 @@ public class MainController : MonoBehaviour
         }
     }
 
+    void changeWeapon() {
+        if (Input.GetButtonDown("Fire3")) {
+            bool toggle = animator.GetBool("sword");
+            animator.SetBool("sword", !toggle);
+        }
+    }
+
     public void enterReadyTalk(NPCController npc) {
         this.npc = npc;
         npc.readyTalk(this.gameObject);
         _curr_state = State.READY_TALK;
     }
-    /*
-    public void enterMobRange(MobController mob)
-    {
-        this.mob = mob;
-        mob.enterRange(this.gameObject);
-    }
-    */
+
     public void leaveReadyTalk() {
         npc.leaveReadyTalk();
         this.npc = null;
         _curr_state = State.NORMAL;
     }
-    /*
-    public void leaveMobRange() {
-        mob.leaveRange();
-        this.mob = null;
-        _curr_state = State.NORMAL;
-    }
-    */
+
     public bool isBusy() {
         return _curr_state == State.READY_TALK || _curr_state == State.TALK;
     }
@@ -106,12 +103,13 @@ public class MainController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate() {
+    void Update() {
         switch(_curr_state){
             case State.NORMAL:
                 change_bag();
                 move();
                 attack();
+                changeWeapon();
                 break;
             case State.READY_TALK:
                 move();

@@ -7,10 +7,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 647175262839872102, guid: 8a8d6fac058ac094c94488029d991c6a, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 78419f98379502c4dbfb2774bc94e7c1, type: 3}
+    - target: {fileID: 647175262839872103, guid: 8a8d6fac058ac094c94488029d991c6a, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: b1b9c1f0ea1fcae439ed1a4d44ff05fd, type: 3}
     - target: {fileID: 647175262839872104, guid: 8a8d6fac058ac094c94488029d991c6a, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -3795437932344149621, guid: 1283df46e474bb7fa85da408f8de3806, type: 3}
+    - target: {fileID: 647175262839872105, guid: 8a8d6fac058ac094c94488029d991c6a, type: 3}
+      propertyPath: char_name
+      value: triangle
+      objectReference: {fileID: 0}
     - target: {fileID: 647175262839872106, guid: 8a8d6fac058ac094c94488029d991c6a, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -61,7 +73,7 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: ea81dc3933755b94db77a5453dd9d41e, type: 2}
     - target: {fileID: 647175262839872110, guid: 8a8d6fac058ac094c94488029d991c6a, type: 3}
       propertyPath: m_Name
-      value: TriangleMob
+      value: TriangleMob Variant
       objectReference: {fileID: 0}
     - target: {fileID: 647175264599334173, guid: 8a8d6fac058ac094c94488029d991c6a, type: 3}
       propertyPath: m_Radius
