@@ -104,7 +104,7 @@ public class MobController : MonoBehaviour
                 _timer -= Time.deltaTime;
                 if(_timer < 0) {
                     shuffle(_directions);
-                    _curr_direction = first_available_direction();
+                    _curr_direction = _player.transform.position-transform.position;
                     if(_curr_direction == Vector3.zero){
                         _timer = TIMER;
                         break;
