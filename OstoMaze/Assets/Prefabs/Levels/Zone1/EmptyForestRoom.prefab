@@ -310,7 +310,7 @@ GameObject:
   - component: {fileID: 5354058126889793969}
   - component: {fileID: 7318519735914842045}
   - component: {fileID: 8234174460334068770}
-  m_Layer: 11
+  m_Layer: 21
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -839,7 +839,7 @@ GameObject:
   - component: {fileID: 2262701601415220285}
   - component: {fileID: 5714613206042954736}
   - component: {fileID: 1783980848341121501}
-  m_Layer: 11
+  m_Layer: 21
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1196,6 +1196,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2339485911272325285}
   - component: {fileID: 3479492234024881622}
+  - component: {fileID: 3690294618260351054}
   m_Layer: 0
   m_Name: EmptyForestRoom
   m_TagString: Untagged
@@ -1241,6 +1242,20 @@ MonoBehaviour:
   - {fileID: 873530937871649701}
   available: 
   unavailable: 00000000010000000200000003000000
+  enemies: {fileID: 0}
+  curr_state: 0
+--- !u!156049354 &3690294618260351054
+Grid:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2339485911272325283}
+  m_Enabled: 1
+  m_CellSize: {x: 1, y: 1, z: 1}
+  m_CellGap: {x: 0, y: 0, z: 0}
+  m_CellLayout: 0
+  m_CellSwizzle: 0
 --- !u!1 &2339485911932795696
 GameObject:
   m_ObjectHideFlags: 0
@@ -1253,7 +1268,7 @@ GameObject:
   - component: {fileID: 2339485911932795701}
   - component: {fileID: 2339485911932795698}
   - component: {fileID: 1496078285390934204}
-  m_Layer: 11
+  m_Layer: 21
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7015,7 +7030,7 @@ GameObject:
   - component: {fileID: 6441315127584268320}
   - component: {fileID: 81755218413869591}
   - component: {fileID: 1570473797587365985}
-  m_Layer: 11
+  m_Layer: 21
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7524,7 +7539,7 @@ GameObject:
   - component: {fileID: 5150075000252628871}
   - component: {fileID: 3429641297261079406}
   - component: {fileID: 2401035081669564086}
-  m_Layer: 11
+  m_Layer: 21
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7940,7 +7955,7 @@ GameObject:
   - component: {fileID: 4820867674659985766}
   - component: {fileID: 6703077216083708222}
   - component: {fileID: 7595687437211395662}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Decorations
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8167,7 +8182,7 @@ GameObject:
   - component: {fileID: 5634236826172062343}
   - component: {fileID: 7048096661966161939}
   - component: {fileID: 4849041797822485836}
-  m_Layer: 11
+  m_Layer: 21
   m_Name: South
   m_TagString: Untagged
   m_Icon: {fileID: 0}
