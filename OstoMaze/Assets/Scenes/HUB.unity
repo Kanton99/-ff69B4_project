@@ -3294,9 +3294,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8159926360451507170, guid: 1bb4290488b201102aaa55306dd3e6e5, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 17
+    - target: {fileID: 1431864810246361682, guid: 1bb4290488b201102aaa55306dd3e6e5, type: 3}
+      propertyPath: m_Offset.y
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 8692950853011994390, guid: 1bb4290488b201102aaa55306dd3e6e5, type: 3}
       propertyPath: manager
