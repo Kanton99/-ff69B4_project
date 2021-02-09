@@ -10,6 +10,10 @@ TagManager:
   - GameManager
   - RoomGenerator
   - Mob
+  - GameData
+  - MusicManager
+  - NoCollision
+  - MainHurtBox
   layers:
   - Default
   - TransparentFX
@@ -27,10 +31,10 @@ TagManager:
   - Main Character
   - Minimap
   - Mob
-  - 
-  - 
-  - 
-  - 
+  - Main Collider
+  - NoCollision
+  - EnemyProjectile
+  - MainHurtBox
   - 
   - 
   - 

@@ -11,11 +11,17 @@ public class MainController : MonoBehaviour
     public Rigidbody2D rigid;
     public NPCController npc;
     public MobController mob;
-    public AudioSource[] swords; 
+    public AudioSource[] swords;
 
     public Vector2 direction;
     public enum State {NORMAL, DEAD, SCRIPTED, READY_TALK, TALK, CHANGING_BAG};
     public State _curr_state;
+
+    // Quasi singleton paradigm, only a GameManager per scene, the oldest one takes priority.
+    void Awake() {
+        if(GameObject.FindGameObjectsWithTag("Player").Length > 1)
+            Destroy(this.gameObject);
+    }
 
     // Start is called before the first frame update
     void Start() {
@@ -47,7 +53,7 @@ public class MainController : MonoBehaviour
     void attack() {
         if(Input.GetButtonDown("Fire1")) {
             animator.SetTrigger("swing");
-            swords[Random.RandomRange(0,3)].Play();
+            swords[Random.Range(0,3)].Play();
         }
     }
 
@@ -76,7 +82,7 @@ public class MainController : MonoBehaviour
         npc.leaveReadyTalk();
         this.npc = null;
         _curr_state = State.NORMAL;
-    }    
+    }
     /*
     public void leaveMobRange() {
         mob.leaveRange();

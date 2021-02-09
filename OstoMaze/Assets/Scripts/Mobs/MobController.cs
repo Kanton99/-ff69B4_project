@@ -20,6 +20,7 @@ public class MobController : MonoBehaviour
     private GameObject _player;
     private AudioSource[] attacksounds;
     private SpriteRenderer _sprite;
+    private Projectile _projectile;
 
     public enum State {IDLE, MOVING, ATTACKING};
     public State _curr_state;
@@ -49,7 +50,7 @@ public class MobController : MonoBehaviour
     }
 
     public void enterRange(GameObject player) {
-        mob_anim.SetBool("attack", true); 
+        mob_anim.SetBool("attack", true);
         mob_anim.SetBool("walk", false);
         _player = player;
         _rb.velocity = Vector3.zero;
@@ -57,8 +58,6 @@ public class MobController : MonoBehaviour
     }
 
     public void leaveRange() {
-      /* if(_curr_state != State.ATTACKING)
-            return;*/
         mob_anim.SetBool("attack", false); 
         mob_anim.SetBool("walk", false);
         _curr_state = State.IDLE;
@@ -67,6 +66,11 @@ public class MobController : MonoBehaviour
     private void Attack()
     {
         attacksounds[Random.RandomRange(0, 2)].Play();
+    //    Quaternion rotation;
+        Projectile projectile = Instantiate(this._projectile, this.transform.position, new Quaternion(0,0,0,0));
+        projectile.transform.parent = null;
+        projectile.Initialize();
+        projectile.Shoot(this.transform.position, _player.transform.position);
     }
 
     private void Move()
@@ -88,12 +92,14 @@ public class MobController : MonoBehaviour
         _directions[2] = new Vector3(-1, 0, 0);
         _directions[3] = new Vector3(1, 0, 0);
         _offset = GetComponent<BoxCollider2D>().offset * transform.localScale.y;
-        _sprite = GetComponentInChildren<SpriteRenderer>();
+        _sprite = GetComponent<SpriteRenderer>();
         attacksounds = GetComponents<AudioSource>();
         _curr_state = State.IDLE;
+        _projectile = Resources.Load<Projectile>("Projectile");
     }
 
-    void FixedUpdate() {
+    // Update is called once per frame
+    void Update() {
         switch(_curr_state) {
             case State.IDLE:
                 _timer -= Time.deltaTime;
