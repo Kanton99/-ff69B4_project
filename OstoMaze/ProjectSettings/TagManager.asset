@@ -23,30 +23,30 @@ TagManager:
   - UI
   - 
   - 
-  - NPC
-  - Main character
-  - NPC obstacle
-  - Indestructible Object
-  - Main character event
-  - Main Character
-  - Minimap
-  - Mob
-  - Main Collider
-  - NoCollision
-  - EnemyProjectile
+  - MainDialog
+  - MainCollider
   - MainHurtBox
+  - MainHitBox
+  - MainEventTrigger
+  - MainCollectRange
+  - NPC
+  - NPCObstacle
+  - 
+  - Mob
+  - MobHurtBox
+  - MobHitBox
+  - 
+  - Wall
+  - Box
+  - Collectible
+  - IndestructibleObject
   - 
   - 
   - 
   - 
+  - Minimap
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - NoCollision
   m_SortingLayers:
   - name: Background
     uniqueID: 1066614255
