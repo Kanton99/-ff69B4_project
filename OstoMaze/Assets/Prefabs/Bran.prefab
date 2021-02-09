@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 85350493209874798}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children: []
   m_Father: {fileID: 5984132233141274116}
   m_RootOrder: 2
@@ -277,7 +277,7 @@ Transform:
   m_GameObject: {fileID: 643087639550258952}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children: []
   m_Father: {fileID: 5984132233141274116}
   m_RootOrder: 1
@@ -326,7 +326,7 @@ GameObject:
   - component: {fileID: 9180525351279581319}
   - component: {fileID: 1671017347775885792}
   m_Layer: 0
-  m_Name: Bran 1
+  m_Name: Bran
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -423,6 +423,7 @@ MonoBehaviour:
   npc: {fileID: 0}
   swords: {fileID: 1232611106288592935}
   bows: {fileID: 4001718497876982824}
+  is_playing: 0
   direction: {x: 0, y: 0}
   _curr_state: 0
 --- !u!212 &1671017347775885792
@@ -970,7 +971,7 @@ Transform:
   m_GameObject: {fileID: 5194843246531250378}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children:
   - {fileID: 2205829576023782991}
   - {fileID: 7616393649611448604}
@@ -990,7 +991,7 @@ GameObject:
   - component: {fileID: 1630293812036933824}
   m_Layer: 10
   m_Name: HurtBox
-  m_TagString: Untagged
+  m_TagString: MainHurtBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
