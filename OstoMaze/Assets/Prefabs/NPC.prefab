@@ -663,7 +663,7 @@ GameObject:
   - component: {fileID: 3161340271196216183}
   - component: {fileID: 3161340271196216176}
   - component: {fileID: 4811778899190937602}
-  m_Layer: 8
+  m_Layer: 14
   m_Name: NPC
   m_TagString: NPC
   m_Icon: {fileID: 0}
@@ -749,7 +749,7 @@ MonoBehaviour:
   TIMER: 3
   VELOCITY: 1
   DIST_MOVEMENT: 2
-  char_name: Name
+  IS_STATIONARY: 0
   _timer: 0
   _curr_state: 0
   char_anim: {fileID: 0}
@@ -766,7 +766,7 @@ GameObject:
   - component: {fileID: 3161340272478400883}
   - component: {fileID: 3161340272478400880}
   - component: {fileID: 3161340272478400882}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
