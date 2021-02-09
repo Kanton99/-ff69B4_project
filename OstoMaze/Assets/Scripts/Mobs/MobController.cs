@@ -29,6 +29,10 @@ public class MobController : MonoBehaviour
         return _player;
     }
 
+    public void ChangeState(State new_state) {
+        _curr_state = new_state;
+    }
+
     private Vector3 first_available_direction() {
         foreach(Vector3 dir in _directions) {
             Debug.DrawRay(transform.position + _offset, dir * DIST_MOVEMENT, Color.red, 2);
