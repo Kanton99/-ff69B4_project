@@ -10,7 +10,6 @@ public class CheckRange : MonoBehaviour
     void OnTriggerEnter2D(Collider2D coll)
     {
        // MainController player = coll.gameObject.GetComponent<MainController>();
-
         if (coll.tag == "MainHurtBox")
         {
             mob.enterRange(coll.gameObject);
