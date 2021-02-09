@@ -512,71 +512,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!1001 &353235743
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 5743498456452464896, guid: 3d6adada3940fbe4cad167906a9790fc, type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: b1b9c1f0ea1fcae439ed1a4d44ff05fd, type: 3}
-    - target: {fileID: 5743498456452464897, guid: 3d6adada3940fbe4cad167906a9790fc, type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 78419f98379502c4dbfb2774bc94e7c1, type: 3}
-    - target: {fileID: 5743498456452464905, guid: 3d6adada3940fbe4cad167906a9790fc, type: 3}
-      propertyPath: m_Name
-      value: TriangleMob Variant
-      objectReference: {fileID: 0}
-    - target: {fileID: 5743498456452464909, guid: 3d6adada3940fbe4cad167906a9790fc, type: 3}
-      propertyPath: m_RootOrder
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 5743498456452464909, guid: 3d6adada3940fbe4cad167906a9790fc, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -10.97
-      objectReference: {fileID: 0}
-    - target: {fileID: 5743498456452464909, guid: 3d6adada3940fbe4cad167906a9790fc, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2.02
-      objectReference: {fileID: 0}
-    - target: {fileID: 5743498456452464909, guid: 3d6adada3940fbe4cad167906a9790fc, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5743498456452464909, guid: 3d6adada3940fbe4cad167906a9790fc, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5743498456452464909, guid: 3d6adada3940fbe4cad167906a9790fc, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5743498456452464909, guid: 3d6adada3940fbe4cad167906a9790fc, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5743498456452464909, guid: 3d6adada3940fbe4cad167906a9790fc, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5743498456452464909, guid: 3d6adada3940fbe4cad167906a9790fc, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5743498456452464909, guid: 3d6adada3940fbe4cad167906a9790fc, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5743498456452464909, guid: 3d6adada3940fbe4cad167906a9790fc, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 3d6adada3940fbe4cad167906a9790fc, type: 3}
 --- !u!114 &483143283 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3008788468400652610, guid: 66883fa56a7185046a777d41d9601fed, type: 3}
@@ -1189,7 +1124,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &650462322
 MonoBehaviour:
@@ -2431,7 +2366,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1412090804
 PrefabInstance:
@@ -3018,7 +2953,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1692553467
 MonoBehaviour:
@@ -3225,7 +3160,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!1001 &1928673027
+--- !u!1001 &1969979551
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -3234,7 +3169,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 647175262839872106, guid: 8a8d6fac058ac094c94488029d991c6a, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 647175262839872106, guid: 8a8d6fac058ac094c94488029d991c6a, type: 3}
       propertyPath: m_LocalPosition.x

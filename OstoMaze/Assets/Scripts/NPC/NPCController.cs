@@ -105,9 +105,6 @@ public class NPCController : MonoBehaviour, IInteractible {
         foreach(AudioSource voice in voices)
             if(voice.isPlaying) return;
         voices[i].Play();
-        // for (int i = 0; i < 3; i++) {
-            // voices[Random.Range(1, 4)].PlayDelayed(0.25f);
-        //}
     }
 
     public void randomSpeak() {

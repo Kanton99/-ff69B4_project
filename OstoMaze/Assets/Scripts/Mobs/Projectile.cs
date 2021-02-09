@@ -1,12 +1,16 @@
-﻿using System;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Projectile: MonoBehaviour
 {
     private Rigidbody2D _rb;
     private AudioSource[] impactsounds;
+    private int index;
     private SpriteRenderer _sprite;
     private Vector3 _direction;
+    private bool is_playing;
+    private bool has_hit = false;
 
     public float VELOCITY;
     public float DIST_MOVEMENT;
@@ -31,12 +35,16 @@ public class Projectile: MonoBehaviour
     
     void OnTriggerEnter2D(Collider2D coll)
     {
-        Destroy(this.gameObject);
+        has_hit = true;
+        index = Random.RandomRange(0,6);
+        impactsounds[index].Play();
+        _sprite.enabled = false;
     }
 
     void Update() {
         _rb.velocity = (_direction - _curr_direction).normalized * VELOCITY;
         if (timer < 0) Destroy(this.gameObject);
         timer -= Time.deltaTime;
+        if (!impactsounds[index].isPlaying && has_hit) Destroy(this.gameObject);
     }
 }
