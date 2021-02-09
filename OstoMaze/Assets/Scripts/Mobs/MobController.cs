@@ -128,9 +128,9 @@ public class MobController : MonoBehaviour
                 }
                 break;
             case State.ATTACKING:
-                if(Vector3.Dot(transform.position - _player.transform.position, transform.right) > 0)
+                if(Vector3.Dot(_player.transform.position - transform.position, transform.right) > 0)
                     _sprite.flipX = true;
-                if(Vector3.Dot(transform.position - _player.transform.position, transform.right) < 0)
+                if(Vector3.Dot( _player.transform.position - transform.position, transform.right) < 0)
                     _sprite.flipX = false;
                 break;
         }
