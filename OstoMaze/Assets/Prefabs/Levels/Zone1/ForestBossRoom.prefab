@@ -9473,7 +9473,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5133331805938912944}
   - component: {fileID: 6269969311869666243}
-  - component: {fileID: 1299824011929278172}
   m_Layer: 0
   m_Name: ForestBossRoom
   m_TagString: Untagged
@@ -9523,18 +9522,6 @@ MonoBehaviour:
   unavailable: 00000000020000000100000003000000
   enemies: {fileID: 5938507009858148068}
   curr_state: 0
---- !u!156049354 &1299824011929278172
-Grid:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5133331805938912950}
-  m_Enabled: 1
-  m_CellSize: {x: 1, y: 1, z: 1}
-  m_CellGap: {x: 0, y: 0, z: 0}
-  m_CellLayout: 0
-  m_CellSwizzle: 0
 --- !u!1 &5312139925056992737
 GameObject:
   m_ObjectHideFlags: 0

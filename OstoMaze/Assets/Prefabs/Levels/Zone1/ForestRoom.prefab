@@ -5962,7 +5962,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6435431306103507301}
   - component: {fileID: 5292041169907860502}
-  - component: {fileID: 899483748290990345}
   m_Layer: 0
   m_Name: ForestRoom
   m_TagString: Untagged
@@ -6011,18 +6010,6 @@ MonoBehaviour:
   unavailable: 0000000001000000
   enemies: {fileID: 5484166156867424561}
   curr_state: 0
---- !u!156049354 &899483748290990345
-Grid:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6435431306103507299}
-  m_Enabled: 1
-  m_CellSize: {x: 1, y: 1, z: 1}
-  m_CellGap: {x: 0, y: 0, z: 0}
-  m_CellLayout: 0
-  m_CellSwizzle: 0
 --- !u!1 &6435431307217660875
 GameObject:
   m_ObjectHideFlags: 0
