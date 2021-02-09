@@ -66,11 +66,10 @@ public class MobController : MonoBehaviour
     private void Attack()
     {
         attacksounds[Random.RandomRange(0, 2)].Play();
-    //    Quaternion rotation;
-        Projectile projectile = Instantiate(this._projectile, this.transform.position, new Quaternion(0,0,0,0));
+        Vector3 spawn = this.transform.position - new Vector3(0, 0.5f, 0);  // mob position - offset
+        Projectile projectile = Instantiate(this._projectile, spawn, new Quaternion(0,0,0,0));
         projectile.transform.parent = null;
-        projectile.Initialize();
-        projectile.Shoot(this.transform.position, _player.transform.position);
+        projectile.Shoot(spawn, _player.transform.position);
     }
 
     private void Move()

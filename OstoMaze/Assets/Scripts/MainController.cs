@@ -13,6 +13,7 @@ public class MainController : MonoBehaviour
     public NPCController npc;
     public Swords swords;
     public Bows bows;
+    public bool is_playing;
 
     public Vector2 direction;
     public enum State {NORMAL, DEAD, SCRIPTED, READY_TALK, TALK, CHANGING_BAG};
@@ -102,6 +103,9 @@ public class MainController : MonoBehaviour
         _curr_state = new_state;
     }
 
+    private void animationPlaying() { is_playing = true; }
+    private void animationNotPlaying () { is_playing = false; }
+
     // Update is called once per frame
     void Update() {
         switch(_curr_state){
@@ -120,6 +124,7 @@ public class MainController : MonoBehaviour
                 talk();
                 break;
             case State.CHANGING_BAG:
+               // if (!is_playing) 
                change(State.NORMAL);
                 break;
         }

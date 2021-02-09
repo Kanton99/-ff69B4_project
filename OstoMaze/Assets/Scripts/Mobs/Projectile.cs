@@ -17,11 +17,6 @@ public class Projectile: MonoBehaviour
     private Vector3 _curr_direction = Vector3.zero;
 
     public void Shoot(Vector3 curr_dir, Vector3 direction) {
-        _curr_direction = curr_dir; // Position MOB
-        _direction = direction;  // Position dir
-    }
-
-    public void Initialize() {
         _rb = GetComponent<Rigidbody2D>();
         _directions[0] = new Vector3(0, -1, 0);
         _directions[1] = new Vector3(0, 1, 0);
@@ -30,6 +25,8 @@ public class Projectile: MonoBehaviour
         _offset = GetComponent<BoxCollider2D>().offset * transform.localScale.y;
         _sprite = GetComponent<SpriteRenderer>();
         impactsounds = GetComponents<AudioSource>();
+        _curr_direction = curr_dir; // Position MOB
+        _direction = direction;  // Position dir
     }
     
     void OnTriggerEnter2D(Collider2D coll)
