@@ -10,12 +10,12 @@ public class MainController : MonoBehaviour
     public SpriteRenderer bow;
     public SpriteRenderer body;
     public Rigidbody2D rigid;
-    public NPCController npc;
+    public IInteractible interactible;
     public Swords swords;
     public Bows bows;
 
     public Vector2 direction;
-    public enum State {NORMAL, DEAD, SCRIPTED, READY_TALK, TALK, CHANGING_BAG};
+    public enum State {NORMAL, DEAD, SCRIPTED, READY_INTERACT, INTERACT, CHANGING_BAG};
     public State _curr_state;
 
     // Quasi singleton paradigm, only a GameManager per scene, the oldest one takes priority.
@@ -59,10 +59,10 @@ public class MainController : MonoBehaviour
         }
     }
 
-    void talk() {
+    void interact() {
         if(Input.GetButtonDown("Fire1")) {
-            if(npc.talk())
-                _curr_state = State.TALK;
+            if(interactible.interact())
+                _curr_state = State.INTERACT;
             else
                 _curr_state = State.NORMAL;
         }
@@ -75,20 +75,20 @@ public class MainController : MonoBehaviour
         }
     }
 
-    public void enterReadyTalk(NPCController npc) {
-        this.npc = npc;
-        npc.readyTalk(this.gameObject);
-        _curr_state = State.READY_TALK;
+    public void enterInteractionRange(IInteractible interactible) {
+        this.interactible = interactible;
+        interactible.enterInteractionRange(this.gameObject);
+        _curr_state = State.READY_INTERACT;
     }
 
-    public void leaveReadyTalk() {
-        npc.leaveReadyTalk();
-        this.npc = null;
+    public void leaveInteractionRange() {
+        interactible.leaveInteractionRange();
+        this.interactible = null;
         _curr_state = State.NORMAL;
     }
 
     public bool isBusy() {
-        return _curr_state == State.READY_TALK || _curr_state == State.TALK;
+        return _curr_state == State.READY_INTERACT || _curr_state == State.INTERACT;
     }
 
     public void change_bag() {
@@ -111,13 +111,13 @@ public class MainController : MonoBehaviour
                 attack();
                 changeWeapon();
                 break;
-            case State.READY_TALK:
+            case State.READY_INTERACT:
                 move();
-                talk();
+                interact();
                 break;
-            case State.TALK:
+            case State.INTERACT:
                 stop();
-                talk();
+                interact();
                 break;
             case State.CHANGING_BAG:
                change(State.NORMAL);

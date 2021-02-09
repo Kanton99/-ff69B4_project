@@ -5,6 +5,7 @@ using UnityEngine;
 public class RandomRoomGenerator : MonoBehaviour
 {
     public GameObject room_template;
+    public GameObject boss_room;
     public GameObject[] obstacles;
     public Vector3 starting_point = Vector3.zero;
     public Transform master_room;
@@ -29,16 +30,19 @@ public class RandomRoomGenerator : MonoBehaviour
             Room.DoorType door_type = extend_room.unavailable[Random.Range(0, extend_room.unavailable.Count - 1)];
             Vector3 position = extend_room.transform.position + extend_room.getSize() * extend_room.directionOf(door_type);
             if(!room_locations.ContainsKey(position)) {
-                Room room = generate(room_template, position, master_room);
-                connectRooms(extend_room, room, door_type);
-                Instantiate(getRandomObstacle(), room.gameObject.transform);
-                rooms.Add(room);
-                room_locations[room.gameObject.transform.position] = room;
-
-                // Crea dati per la minimappa ...
+                if(i == num_rooms - 2) {
+                    boss_room.transform.position = position;
+                    connect(extend_room, boss_room.GetComponent<Room>(), door_type);
+                } else {
+                    Room room = generate(room_template, position, master_room);
+                    connect(extend_room, room, door_type);
+                    Instantiate(getRandomObstacle(), room.gameObject.transform);
+                    rooms.Add(room);
+                    room_locations[room.gameObject.transform.position] = room;
+                }
             } else {
                 Room room = room_locations[position];
-                connectRooms(extend_room, room, door_type);
+                connect(extend_room, room, door_type);
                 if(room.available.Count == 4)
                     rooms.Remove(room);
                 i--;
@@ -65,7 +69,7 @@ public class RandomRoomGenerator : MonoBehaviour
         return room.GetComponent<Room>();
     }
 
-    private void connectRooms(Room room1, Room room2, Room.DoorType door_type1) {
+    private void connect(Room room1, Room room2, Room.DoorType door_type1) {
         room1.setAvailable(door_type1);
         room2.setAvailable(((int)door_type1 + 2)%4);
     }

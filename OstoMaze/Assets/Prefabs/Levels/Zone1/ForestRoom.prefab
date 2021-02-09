@@ -5978,7 +5978,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6435431306103507299}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 20, y: 20, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6435431307217660874}
@@ -6007,8 +6007,8 @@ MonoBehaviour:
   - {fileID: 8633894557401232766}
   - {fileID: 8407335647897562782}
   - {fileID: 8441961652470284901}
-  available: 
-  unavailable: 00000000010000000200000003000000
+  available: 03000000
+  unavailable: 000000000100000002000000
   enemies: {fileID: 5484166156867424561}
   curr_state: 0
 --- !u!156049354 &899483748290990345
@@ -11117,7 +11117,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6803922243617624855
 Transform:
   m_ObjectHideFlags: 0

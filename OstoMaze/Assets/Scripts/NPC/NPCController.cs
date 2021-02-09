@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NPCController : MonoBehaviour {
+public class NPCController : MonoBehaviour, IInteractible {
     public float TIMER;
     public float VELOCITY; // Velocita di movimento
     public float DIST_MOVEMENT;
@@ -32,6 +32,22 @@ public class NPCController : MonoBehaviour {
         array[i] = array[ridx];
         array[ridx] = buff;
       }
+    }
+
+    public bool interact() {
+        return talk();
+    }
+
+    public void enterInteractionRange(GameObject gameObject) {
+        readyTalk(gameObject);
+    }
+
+    public void leaveInteractionRange() {
+        leaveReadyTalk();
+    }
+
+    public GameObject getGameObject() {
+        return this.gameObject;
     }
 
     private Vector3 first_available_direction() {
