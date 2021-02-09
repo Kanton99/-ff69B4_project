@@ -6,6 +6,7 @@ public class MainController : MonoBehaviour
 {
     public float moving_speed;
     public Animator animator;
+    public Transform transform;
     public SpriteRenderer arms;
     public SpriteRenderer bow;
     public SpriteRenderer body;
