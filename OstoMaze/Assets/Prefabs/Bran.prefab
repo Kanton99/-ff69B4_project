@@ -249,7 +249,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc3fd72194904d04e815eba86a21370f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bow: {fileID: 0}
+  bow: {fileID: 6565425871555225229}
+  player_pos: {fileID: 1220100379119807283}
+  mob_pos: {fileID: 0}
 --- !u!1 &643087639550258952
 GameObject:
   m_ObjectHideFlags: 0
@@ -416,11 +418,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moving_speed: 5
   animator: {fileID: 1220100379119807282}
+  transform: {fileID: 0}
   arms: {fileID: 1220100379156757643}
   bow: {fileID: 3803430993105367666}
   body: {fileID: 1220100380333258317}
   rigid: {fileID: 1220100379119807285}
-  npc: {fileID: 0}
   swords: {fileID: 1232611106288592935}
   bows: {fileID: 4001718497876982824}
   is_playing: 0

@@ -22,7 +22,7 @@ public class MobController : MonoBehaviour
     private SpriteRenderer _sprite;
     private Projectile _projectile;
 
-    public enum State {IDLE, MOVING, ATTACKING};
+    public enum State {SPAWNING, IDLE, MOVING, ATTACKING};
     public State _curr_state;
 
     public GameObject getPlayer() {
@@ -42,10 +42,10 @@ public class MobController : MonoBehaviour
 
     private void shuffle(Vector3[] array) {
         for(int i = 0; i < array.Length; i++) {
-        int ridx = Random.Range(0, array.Length-1);
-        Vector3 buff = array[i];
-        array[i] = array[ridx];
-        array[ridx] = buff;
+            int ridx = Random.Range(0, array.Length-1);
+            Vector3 buff = array[i];
+            array[i] = array[ridx];
+            array[ridx] = buff;
         }
     }
 
@@ -58,7 +58,7 @@ public class MobController : MonoBehaviour
     }
 
     public void leaveRange() {
-        mob_anim.SetBool("attack", false); 
+        mob_anim.SetBool("attack", false);
         mob_anim.SetBool("walk", false);
         _curr_state = State.IDLE;
     }
@@ -68,8 +68,8 @@ public class MobController : MonoBehaviour
         attacksounds[Random.RandomRange(0, 2)].Play();
         Vector3 spawn = this.transform.position - new Vector3(0, 0.5f, 0);  // mob position - offset
         Projectile projectile = Instantiate(this._projectile, spawn, new Quaternion(0,0,0,0));
-        projectile.transform.parent = null;
-        projectile.Shoot(spawn, _player.transform.position);
+        Vector3 direction = (_player.transform.position - transform.position).normalized;
+        projectile.Shoot(spawn, direction);
     }
 
     private void Move()
@@ -93,19 +93,22 @@ public class MobController : MonoBehaviour
         _offset = GetComponent<BoxCollider2D>().offset * transform.localScale.y;
         _sprite = GetComponent<SpriteRenderer>();
         attacksounds = GetComponents<AudioSource>();
-        _curr_state = State.IDLE;
         _projectile = Resources.Load<Projectile>("Projectile");
+
+        _curr_state = State.IDLE;
     }
 
     // Update is called once per frame
     void Update() {
         switch(_curr_state) {
+            case State.SPAWNING:
+                break;
             case State.IDLE:
                 _timer -= Time.deltaTime;
                 if(_timer < 0) {
                     shuffle(_directions);
                     _curr_direction = first_available_direction();
-                    if(_curr_direction == Vector3.zero){
+                    if(_curr_direction == Vector3.zero) {
                         _timer = TIMER;
                         break;
                     }
@@ -128,9 +131,9 @@ public class MobController : MonoBehaviour
                 break;
             case State.ATTACKING:
                 if(Vector3.Dot(_player.transform.position - transform.position, transform.right) > 0)
-                    _sprite.flipX = true;
-                if(Vector3.Dot( _player.transform.position - transform.position, transform.right) < 0)
                     _sprite.flipX = false;
+                if(Vector3.Dot( _player.transform.position - transform.position, transform.right) < 0)
+                    _sprite.flipX = true;
                 break;
         }
     }
