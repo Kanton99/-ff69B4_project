@@ -27,7 +27,7 @@ public class RandomRoomGenerator : MonoBehaviour
         for(int i = 0; i < num_rooms - 1; i++) {
             int rint = Random.Range(0, rooms.Count - 1);
             Room extend_room = rooms[rint];
-            Room.DoorType door_type = extend_room.unavailable[Random.Range(0, extend_room.unavailable.Count - 1)];
+            Room.DoorType door_type = extend_room.unavailable[Random.Range(0, extend_room.unavailable.Count - 2)];
             Vector3 position = extend_room.transform.position + extend_room.getSize() * extend_room.directionOf(door_type);
             if(!room_locations.ContainsKey(position)) {
                 if(i == num_rooms - 2) {

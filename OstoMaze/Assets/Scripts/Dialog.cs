@@ -11,6 +11,7 @@ public class Dialog : MonoBehaviour
 
     public float scrolling_speed;
     public NPCController npc;
+    public string my_name;
     [TextArea]
     public string[] dialog;
 
@@ -20,7 +21,10 @@ public class Dialog : MonoBehaviour
     void Start()
     {
         dialog_text.text = "";
-        name_text.text = npc.gameObject.name;
+        if(npc != null)
+            name_text.text = npc.gameObject.name;
+        else
+            name_text.text = my_name;
         _idx = 0;
         _is_typing = false;
         enabled = false;
@@ -30,6 +34,7 @@ public class Dialog : MonoBehaviour
         _idx = 0;
         StartCoroutine(type(dialog[_idx]));
     }
+
     public void clear() {
         _idx = 0;
         _is_typing = false;
@@ -61,7 +66,7 @@ public class Dialog : MonoBehaviour
         _is_typing = true;
         dialog_text.text = "";
         foreach(char ele in text.ToCharArray()) {
-            npc.randomSpeak();
+            if(npc != null) npc.randomSpeak();
             dialog_text.text += ele;
             yield return new WaitForSeconds(1 / scrolling_speed);
         }

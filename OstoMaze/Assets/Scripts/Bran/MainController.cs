@@ -62,6 +62,7 @@ public class MainController : MonoBehaviour
 
     void interact() {
         if(Input.GetButtonDown("Fire1")) {
+            Debug.Log("Trying to interact");
             if(interactible.interact())
                 _curr_state = State.INTERACT;
             else
@@ -124,7 +125,6 @@ public class MainController : MonoBehaviour
                 interact();
                 break;
             case State.CHANGING_BAG:
-               // if (!is_playing) 
                change(State.NORMAL);
                 break;
         }
