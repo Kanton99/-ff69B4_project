@@ -1144,7 +1144,7 @@ MonoBehaviour:
   - {fileID: 965916853819570450, guid: 25afa7c2882110eb387794cf5513b54b, type: 3}
   starting_point: {x: 0, y: 0, z: 0}
   master_room: {fileID: 1649386482}
-  bossIcon: {fileID: 0}
+  bossIcon: {fileID: 647175262839872110, guid: 8a8d6fac058ac094c94488029d991c6a, type: 3}
   rooms: []
 --- !u!4 &1518752509
 Transform:
