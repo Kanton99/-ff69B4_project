@@ -77,7 +77,7 @@ public class MobController : MonoBehaviour
         projectile.Shoot(spawn, direction);
     }
 
-    private void TakeDamage(float damage) {
+    public void TakeDamage(float damage) {
         this.hp -= damage; //Damage computation
         if (hp <= 0)
             mob_anim.Play("Death");
@@ -90,8 +90,6 @@ public class MobController : MonoBehaviour
     void OnTriggerEnter2D(Collider2D coll) {
         if(coll.gameObject.tag == "Arrow")
             TakeDamage(1);
-        else if (coll.gameObject.tag == "Swords")
-            TakeDamage(3);
     }
 
     private void Move()
