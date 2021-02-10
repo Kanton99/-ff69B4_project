@@ -251,7 +251,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sound: {fileID: 6565425871555225229}
+  player: {fileID: 9180525351279581319}
   player_pos: {fileID: 1220100379119807283}
+  player_anim: {fileID: 1220100379119807282}
+  is_finished: 0
 --- !u!58 &1662345424681853207
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -432,7 +435,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 026a3d0f091f55843b51be67b76896ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moving_speed: 5
+  moving_speed: 4.5
   animator: {fileID: 1220100379119807282}
   arms: {fileID: 1220100379156757643}
   bow: {fileID: 3803430993105367666}
@@ -441,6 +444,7 @@ MonoBehaviour:
   swords: {fileID: 1232611106288592935}
   bows: {fileID: 4001718497876982824}
   is_playing: 0
+  finished_animation: 0
   direction: {x: 0, y: 0}
   _curr_state: 0
 --- !u!212 &1671017347775885792
@@ -508,9 +512,10 @@ GameObject:
   - component: {fileID: 9073006439449398182}
   - component: {fileID: 1032458454895204945}
   - component: {fileID: 1232611106288592935}
-  m_Layer: 0
+  - component: {fileID: 8452488335521740560}
+  m_Layer: 16
   m_Name: Arms
-  m_TagString: Untagged
+  m_TagString: Swords
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -881,6 +886,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   swords: []
+  player_anim: {fileID: 1220100379119807282}
+  player: {fileID: 9180525351279581319}
+--- !u!58 &8452488335521740560
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1220100379156757641}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.33
 --- !u!1 &1220100380333258315
 GameObject:
   m_ObjectHideFlags: 0

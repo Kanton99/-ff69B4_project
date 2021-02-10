@@ -80,11 +80,18 @@ public class MobController : MonoBehaviour
     private void TakeDamage(float damage) {
         this.hp -= damage; //Damage computation
         if (hp <= 0)
-            mob_anim.Play("SphereDeath");
+            mob_anim.Play("Death");
     }
 
     private void Die() {
         Destroy(this.gameObject);
+    }
+
+    void OnTriggerEnter2D(Collider2D coll) {
+        if(coll.gameObject.tag == "Arrow")
+            TakeDamage(1);
+        else if (coll.gameObject.tag == "Swords")
+            TakeDamage(3);
     }
 
     private void Move()
@@ -94,11 +101,6 @@ public class MobController : MonoBehaviour
             _sprite.flipX = true;
         if (Vector3.Dot(_curr_direction, transform.right) > 0)
             _sprite.flipX = false;
-    }
-
-    void OnTriggerEnter2D(Collider2D coll) {
-        if(coll.gameObject.tag == "Arrow")
-            TakeDamage(1);
     }
 
     // Start is called before the first frame update

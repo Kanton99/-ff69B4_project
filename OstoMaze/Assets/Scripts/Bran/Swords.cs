@@ -5,6 +5,8 @@ using UnityEngine;
 public class Swords : MonoBehaviour
 {
     public AudioSource[] swords;
+    public Animator player_anim;
+    public MainController player;
 
     // Start is called before the first frame update
     void Start()
@@ -13,6 +15,12 @@ public class Swords : MonoBehaviour
     }
 
     public void Attack() {
-        swords[Random.Range(0, 3)].Play();
+        player_anim.SetTrigger("swing");
+    }
+
+    void Update() {
+        if (player.finished_animation) {  // if sword swinging animation is finished
+            swords[Random.Range(0, 3)].Play();
+        }
     }
 }

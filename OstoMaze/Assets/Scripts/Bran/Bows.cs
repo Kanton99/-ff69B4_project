@@ -5,8 +5,11 @@ using UnityEngine;
 public class Bows : MonoBehaviour
 {
     public AudioSource sound;
+    public MainController player;
     private Arrow _arrow;
     public Transform player_pos;
+    public Animator player_anim;
+    public bool is_finished = false;
     List<MobController> mobs = new List<MobController>();
 
     // Start is called before the first frame update
@@ -39,8 +42,13 @@ public class Bows : MonoBehaviour
     }
 
     public void Attack() {
-        sound.Play();
         if (mobs.Count > 0) {
+            player_anim.SetTrigger("shooting");  // start animation
+        }
+    }
+    void Update() {
+        if (player.finished_animation) {  // if string pulling animation is finished
+            sound.Play();
             Vector3 near = Nearest();
             Vector3 spawn = player_pos.position;
             Vector3 forward = new Vector3(0,0,1);
