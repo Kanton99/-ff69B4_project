@@ -5,14 +5,14 @@ using UnityEngine;
 public class Bows : MonoBehaviour
 {
     public AudioSource bow;
-    private Projectile _arrow;
+    private Arrow _arrow;
     public Transform player_pos;
     List<MobController> mobs = new List<MobController>();
 
     // Start is called before the first frame update
     void Start()
     {
-        _arrow = Resources.Load<Projectile>("Arrow");
+        _arrow = Resources.Load<Arrow>("Arrow");
     }
 
     private void OnTriggerEnter2D(Collider2D coll) {
@@ -49,9 +49,11 @@ public class Bows : MonoBehaviour
 
     public void Attack() {
         bow.Play();
-        Vector3 spawn = player_pos.position;
-        Projectile arrow = Instantiate(this._arrow, spawn, new Quaternion(0,0,0,0));
-        arrow.transform.parent = null;
-        arrow.Shoot(spawn, Nearest());
+        if (mobs.Count > 0) {
+            Vector3 spawn = player_pos.position;
+            Arrow arrow = Instantiate(this._arrow, spawn, new Quaternion(0, 0, 0, 0));
+            arrow.transform.parent = null;
+            arrow.Shoot(spawn, Nearest());
+        }
     }
 }

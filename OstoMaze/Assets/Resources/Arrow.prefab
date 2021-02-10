@@ -12,11 +12,11 @@ GameObject:
   - component: {fileID: 8485794752750514295}
   - component: {fileID: 1822692573895880375}
   - component: {fileID: 6434174393168943506}
-  - component: {fileID: -3263650086377943592}
   - component: {fileID: -5652575758954829997}
-  m_Layer: 0
+  - component: {fileID: 500762337863156689}
+  m_Layer: 11
   m_Name: Arrow
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2925277767350544995}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.838946, y: 4.000754, z: -36.74277}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -106,7 +106,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &6434174393168943506
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -117,7 +117,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -133,21 +133,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.13, y: 0.03}
   m_EdgeRadius: 0
---- !u!114 &-3263650086377943592
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2925277767350544995}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b1ff79517181b64ba596b9fb604ea6c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  VELOCITY: 4
-  DIST_MOVEMENT: 1
-  timer: 3
 --- !u!82 &-5652575758954829997
 AudioSource:
   m_ObjectHideFlags: 0
@@ -158,9 +143,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
+  m_audioClip: {fileID: 8300000, guid: 3db1284c00dd04218991196e8edbee63, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.15
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -244,3 +229,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &500762337863156689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2925277767350544995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aaa2a24f6a7e3ef4595969181dd59cce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  impactsound: {fileID: -5652575758954829997}
+  VELOCITY: 4.5
+  timer: 5
