@@ -87,7 +87,6 @@ public class MobController : MonoBehaviour
         Destroy(this.gameObject);
     }
 
-
     private void Move()
     {
         _rb.velocity = _curr_direction * VELOCITY;
@@ -98,7 +97,6 @@ public class MobController : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D coll) {
-        Debug.Log("DIO CANE");
         if(coll.gameObject.tag == "Arrow")
             TakeDamage(1);
     }

@@ -46,7 +46,6 @@ public class Bows : MonoBehaviour
             Vector3 forward = new Vector3(0,0,1);
             Vector3 up = Vector3.Cross(forward, near - spawn);
             Arrow arrow = Instantiate(this._arrow, spawn, Quaternion.LookRotation(forward, up));
-            // Arrow arrow = Instantiate(this._arrow, spawn, new Quaternion(0,0,0,0));
             arrow.transform.parent = null;
             arrow.Shoot(spawn, near);
         }

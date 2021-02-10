@@ -425,5 +425,6 @@ MonoBehaviour:
   DIST_MOVEMENT: 3
   char_name: Sphere
   _timer: 0
+  hp: 5
   mob_anim: {fileID: 647175262839872107}
   _curr_state: 0
