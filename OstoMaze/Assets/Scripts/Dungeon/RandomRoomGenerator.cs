@@ -5,39 +5,45 @@ using UnityEngine;
 public class RandomRoomGenerator : MonoBehaviour
 {
     public GameObject room_template;
-    public GameObject boss_room;
+    public Room boss_room;
+
     public GameObject[] obstacles;
+
     public Vector3 starting_point = Vector3.zero;
     public Transform master_room;
-    public GameObject bossIcon;
 
     [SerializeField]
     List<Room> rooms = new List<Room>();
 
     // Start is called before the first frame update
-    void Start() { enabled = false; }
+    void Start() {
+        enabled = false;
+    }
 
     public Vector3 generateRooms(int num_rooms = 0) {
         Dictionary<Vector3, Room> room_locations = new Dictionary<Vector3, Room>();
         rooms.Add(generate(room_template, starting_point, master_room));
         room_locations[starting_point] = rooms[0];
 
-        Vector3 spawn_point = rooms[0].center;
+        Vector3 spawn_point = rooms[0].getCenter();
 
         for(int i = 0; i < num_rooms - 1; i++) {
             int rint = Random.Range(0, rooms.Count - 1);
             Room extend_room = rooms[rint];
-            Room.DoorType door_type = extend_room.unavailable[Random.Range(0, extend_room.unavailable.Count - 2)];
+            Room.DoorType door_type = extend_room.unavailable[Random.Range(0, extend_room.unavailable.Count - 1)];
             Vector3 position = extend_room.transform.position + extend_room.getSize() * extend_room.directionOf(door_type);
             if(!room_locations.ContainsKey(position)) {
                 if(i == num_rooms - 2) {
+                    boss_room.gameObject.transform.parent = master_room;
                     boss_room.transform.position = position;
-                    boss_room.transform.parent = master_room;
                     connect(extend_room, boss_room.GetComponent<Room>(), door_type);
                 } else {
                     Room room = generate(room_template, position, master_room);
+
                     connect(extend_room, room, door_type);
-                    Instantiate(getRandomObstacle(), room.gameObject.transform);
+                    Obstacles obstacle = Instantiate(getRandomObstacle(), room.gameObject.transform).GetComponent<Obstacles>();
+                    room.addEnemies(obstacle.getEnemies());
+                    //room.addContent(obstacle.gameObject.transform);
                     rooms.Add(room);
                     room_locations[room.gameObject.transform.position] = room;
                 }
@@ -52,9 +58,6 @@ public class RandomRoomGenerator : MonoBehaviour
                 rooms.Remove(extend_room);
         }
         room_template.SetActive(false);
-        Vector2 b_pos = rooms[rooms.Count - 1].transform.position + rooms[rooms.Count - 1].center;
-        GameObject boss = Instantiate(bossIcon, b_pos, Quaternion.identity);
-        boss.SetActive(true);
         return spawn_point;
     }
 
@@ -71,7 +74,7 @@ public class RandomRoomGenerator : MonoBehaviour
     }
 
     private void connect(Room room1, Room room2, Room.DoorType door_type1) {
-        room1.setAvailable(door_type1);
-        room2.setAvailable(((int)door_type1 + 2)%4);
+        room1.openPath(door_type1);
+        room2.openPath(((int)door_type1 + 2)%4);
     }
 }

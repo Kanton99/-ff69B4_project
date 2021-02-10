@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Bows : MonoBehaviour
 {
-    public AudioSource bow;
+    public AudioSource sound;
     private Arrow _arrow;
     public Transform player_pos;
     List<MobController> mobs = new List<MobController>();
@@ -16,44 +16,39 @@ public class Bows : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D coll) {
-        if (coll.tag == "Mob")
-        {
-            MobController mob = coll.gameObject.GetComponent<MobController>();
-            mobs.Add(mob);
-        }
+        MobController mob = coll.gameObject.GetComponent<MobController>();
+        mobs.Add(mob);
     }
 
     private void OnTriggerExit2D(Collider2D coll) {
-        if (coll.tag == "Mob") {
-            MobController mob = coll.gameObject.GetComponent<MobController>();
-            mobs.Remove(mob);
-        }
+        MobController mob = coll.gameObject.GetComponent<MobController>();
+        mobs.Remove(mob);
     }
 
     private Vector3 Nearest() {
-        Vector3 nearest = new Vector3(10f, 10f, 10f);
-        float nearest_val = nearest.x + nearest.y;
-        Vector3 near = player_pos.position - nearest;
-        float near_val = Mathf.Abs(near.x) + Mathf.Abs(near.y);
-
+        float min_dist = (player_pos.position - mobs[0].transform.position).magnitude;
+        Vector3 nearest = mobs[0].transform.position;
         foreach (MobController mob in mobs) {
-            near = player_pos.position - mob.transform.position;
-            near_val = Mathf.Abs(near.x) + Mathf.Abs(near.y);
-            if (near_val < nearest_val) {
-                nearest = near;
-                nearest_val = near_val;
+            float dist = (player_pos.position - mob.transform.position).magnitude;
+            if (dist < min_dist) {
+                nearest = mob.transform.position;
+                min_dist = dist;
             }
         }
         return nearest;
     }
 
     public void Attack() {
-        bow.Play();
+        sound.Play();
         if (mobs.Count > 0) {
+            Vector3 near = Nearest();
             Vector3 spawn = player_pos.position;
-            Arrow arrow = Instantiate(this._arrow, spawn, new Quaternion(0, 0, 0, 0));
+            Vector3 forward = new Vector3(0,0,1);
+            Vector3 up = Vector3.Cross(forward, near - spawn);
+            Arrow arrow = Instantiate(this._arrow, spawn, Quaternion.LookRotation(forward, up));
+            // Arrow arrow = Instantiate(this._arrow, spawn, new Quaternion(0,0,0,0));
             arrow.transform.parent = null;
-            arrow.Shoot(spawn, Nearest());
+            arrow.Shoot(spawn, near);
         }
     }
 }

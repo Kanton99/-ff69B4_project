@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 500762337863156689}
   m_Layer: 11
   m_Name: Arrow
-  m_TagString: Player
+  m_TagString: Arrow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

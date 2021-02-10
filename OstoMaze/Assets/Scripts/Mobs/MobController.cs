@@ -9,6 +9,7 @@ public class MobController : MonoBehaviour
     public float DIST_MOVEMENT;
     public string char_name;
     public float _timer;
+    public float hp;
 
     public Animator mob_anim;
 
@@ -76,6 +77,17 @@ public class MobController : MonoBehaviour
         projectile.Shoot(spawn, direction);
     }
 
+    private void TakeDamage(float damage) {
+        this.hp -= damage; //Damage computation
+        if (hp <= 0)
+            mob_anim.Play("SphereDeath");
+    }
+
+    private void Die() {
+        Destroy(this.gameObject);
+    }
+
+
     private void Move()
     {
         _rb.velocity = _curr_direction * VELOCITY;
@@ -83,6 +95,12 @@ public class MobController : MonoBehaviour
             _sprite.flipX = true;
         if (Vector3.Dot(_curr_direction, transform.right) > 0)
             _sprite.flipX = false;
+    }
+
+    void OnTriggerEnter2D(Collider2D coll) {
+        Debug.Log("DIO CANE");
+        if(coll.gameObject.tag == "Arrow")
+            TakeDamage(1);
     }
 
     // Start is called before the first frame update

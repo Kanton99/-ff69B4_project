@@ -1254,7 +1254,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 2179923767
+    m_Bits: 2179989303
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -3247,9 +3247,29 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 647175262839872104, guid: 8a8d6fac058ac094c94488029d991c6a, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 647175262839872104, guid: 8a8d6fac058ac094c94488029d991c6a, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 647175262839872104, guid: 8a8d6fac058ac094c94488029d991c6a, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 647175262839872104, guid: 8a8d6fac058ac094c94488029d991c6a, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 647175262839872106, guid: 8a8d6fac058ac094c94488029d991c6a, type: 3}
       propertyPath: m_RootOrder
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 647175262839872106, guid: 8a8d6fac058ac094c94488029d991c6a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.4890954
       objectReference: {fileID: 0}
     - target: {fileID: 647175262839872106, guid: 8a8d6fac058ac094c94488029d991c6a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3257,7 +3277,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 647175262839872106, guid: 8a8d6fac058ac094c94488029d991c6a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.005
       objectReference: {fileID: 0}
     - target: {fileID: 647175262839872106, guid: 8a8d6fac058ac094c94488029d991c6a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3375,13 +3395,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 390631970946554902, guid: 12533865d4f5e0625ab82da997a427e2, type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1220100379119807281, guid: 12533865d4f5e0625ab82da997a427e2, type: 3}
       propertyPath: m_Name
       value: Bran
+      objectReference: {fileID: 0}
+    - target: {fileID: 1220100379119807281, guid: 12533865d4f5e0625ab82da997a427e2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1220100379119807283, guid: 12533865d4f5e0625ab82da997a427e2, type: 3}
       propertyPath: m_RootOrder
@@ -3426,10 +3446,6 @@ PrefabInstance:
     - target: {fileID: 1220100379119807283, guid: 12533865d4f5e0625ab82da997a427e2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662345424681853207, guid: 12533865d4f5e0625ab82da997a427e2, type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8871809705747385813, guid: 12533865d4f5e0625ab82da997a427e2, type: 3}
       propertyPath: m_IsActive

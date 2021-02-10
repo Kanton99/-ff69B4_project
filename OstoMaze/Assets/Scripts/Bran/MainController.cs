@@ -121,9 +121,10 @@ public class MainController : MonoBehaviour
                 stop();
                 interact();
                 break;
+            // TODO: Needs to be corrected!
             case State.CHANGING_BAG:
                change(State.NORMAL);
-                break;
+               break;
         }
     }
 }
