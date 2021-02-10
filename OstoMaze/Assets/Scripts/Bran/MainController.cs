@@ -19,7 +19,7 @@ public class MainController : MonoBehaviour
     public enum State {NORMAL, DEAD, SCRIPTED, READY_INTERACT, INTERACT, CHANGING_BAG};
     public State _curr_state;
 
-    // Quasi singleton paradigm, only a GameManager per scene, the oldest one takes priority.
+    // Quasi singleton paradigm, only a Character per scene, the oldest one takes priority.
     void Awake() {
         if(GameObject.FindGameObjectsWithTag("Player").Length > 1)
             Destroy(this.gameObject);
@@ -43,7 +43,7 @@ public class MainController : MonoBehaviour
             body.flipX = flip;
             bow.flipX = flip;
             rigid.velocity = moving_speed * direction;
-          } else
+        } else
             stop();
     }
 
@@ -62,6 +62,7 @@ public class MainController : MonoBehaviour
 
     void interact() {
         if(Input.GetButtonDown("Fire1")) {
+      //      Debug.Log("Trying to interact");
             if(interactible.interact())
                 _curr_state = State.INTERACT;
             else
@@ -120,9 +121,10 @@ public class MainController : MonoBehaviour
                 stop();
                 interact();
                 break;
+            // TODO: Needs to be corrected!
             case State.CHANGING_BAG:
                change(State.NORMAL);
-                break;
+               break;
         }
     }
 }

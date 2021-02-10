@@ -15,16 +15,18 @@ public class Room : MonoBehaviour
     public enum State {UNEXPLORED, TO_FIGHT, FIGHT, TO_CLEARED, CLEARED};
     public State curr_state;
 
-    public void setAvailable(DoorType door_type) {
+    public void openPath(DoorType door_type) {
+        Debug.Log("Opening path!");
         Door new_door = doors[(int)door_type];
         new_door.setAvailable();
         available.Add(door_type);
         unavailable.Remove(door_type);
     }
 
-    public void setAvailable(int door_type) {
+    public void openPath(int door_type) {
         if(door_type < 0 || door_type >= 4)
             throw new ArgumentException("door_type must between 0 and 3");
+        Debug.Log("Opening path!");
         Door new_door = doors[door_type];
         new_door.setAvailable();
         available.Add((DoorType)door_type);
@@ -60,6 +62,43 @@ public class Room : MonoBehaviour
         return 20.0f;
     }
 
+    public Vector2 getCenter() {
+        return transform.position + center;
+    }
+
+    public void addEnemies(Transform enemies) {
+        if (enemies != null) {
+            enemies.parent = this.transform;
+            this.enemies = enemies;
+            disableEnemies();
+        } else {
+            Debug.Log("This object doesn't contain any enemies!");
+        }
+
+    }
+
+    private void disableEnemies () {
+        foreach (Transform enemy in enemies) {
+            enemy.gameObject.SetActive(false);
+        }
+    }
+
+    private void spawnEnemies() {
+        foreach (Transform enemy in enemies) {
+            enemy.gameObject.SetActive(true);
+        }
+    }
+
+    public bool isEnemiesEmpty() {
+        if(enemies == null || enemies.childCount == 0)
+            return true;
+        return false;
+    }
+
+    public void addContent(Transform content) {
+        content.parent = this.transform;
+    }
+
     void Start () {
         curr_state = State.UNEXPLORED;
     }
@@ -69,11 +108,12 @@ public class Room : MonoBehaviour
             case State.UNEXPLORED:
                 break;
             case State.TO_FIGHT:
-                if (enemies.childCount == 0) {
+                if (this.isEnemiesEmpty()) {
                     curr_state = State.CLEARED;
                     break;
                 }
                 closeDoors();
+                spawnEnemies();
                 curr_state = State.FIGHT;
                 break;
             case State.FIGHT:

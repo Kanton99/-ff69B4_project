@@ -34,7 +34,7 @@ public class MobAI : MonoBehaviour
         Vector2 nPlayer_dir = Player_dir.normalized;
 
 
-        sprite.flipX = (Vector3.Dot(nPlayer_dir, Vector2.right) < 0) ? true : false;
+        sprite.flipX = (Vector3.Dot(Player_dir, Vector2.right) < 0) ? true : false;
         if(player_dis >= distance) gameObject.transform.position += new Vector3(nPlayer_dir.x, nPlayer_dir.y, 0) * speed * Time.deltaTime;
         else
         {
@@ -50,4 +50,3 @@ public class MobAI : MonoBehaviour
         projectile.Shoot(spawn, Player.transform.position);
     }
 }
-

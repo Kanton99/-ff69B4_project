@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Projectile: MonoBehaviour
+public class Arrow : MonoBehaviour
 {
     private Rigidbody2D _rb;
-    private AudioSource[] impactsounds;
+    public AudioSource impactsound;
     private int index;
     private SpriteRenderer _sprite;
     private Vector3 _direction;
@@ -15,14 +15,10 @@ public class Projectile: MonoBehaviour
     public float VELOCITY;
     public float timer;
 
-    private Vector3 _offset;
-    private Vector3 _curr_direction = Vector3.zero;
-
-    public void Shoot(Vector3 spawn, Vector3 aim) {
+    public void Shoot(Vector3 spawn, Vector3 aim)
+    {
         _rb = GetComponent<Rigidbody2D>();
-        _offset = GetComponent<BoxCollider2D>().offset * transform.localScale.y;
         _sprite = GetComponent<SpriteRenderer>();
-        impactsounds = GetComponents<AudioSource>();
         transform.position = spawn; // spawn position
         _direction = aim;  // aim position
     }
@@ -30,15 +26,15 @@ public class Projectile: MonoBehaviour
     void OnTriggerEnter2D(Collider2D coll)
     {
         has_hit = true;
-        index = Random.Range(0, impactsounds.Length);
-        impactsounds[index].Play();
+        impactsound.Play();
         _sprite.enabled = false;
     }
 
-    void Update() {
-        _rb.velocity = _direction * VELOCITY;
+    void Update()
+    {
+        _rb.velocity = (_direction - transform.position).normalized * VELOCITY;
         if (timer < 0) Destroy(this.gameObject);
         timer -= Time.deltaTime;
-        if (!impactsounds[index].isPlaying && has_hit) Destroy(this.gameObject);
+        if (!impactsound.isPlaying && has_hit) Destroy(this.gameObject);
     }
 }
