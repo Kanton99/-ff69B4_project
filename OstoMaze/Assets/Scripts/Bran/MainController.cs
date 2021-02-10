@@ -14,6 +14,7 @@ public class MainController : MonoBehaviour
     public Swords swords;
     public Bows bows;
     public bool is_playing;
+    public bool finished_animation = false; // to cotrol the shooting of the arrows and the swing of the sword
 
     public Vector2 direction;
     public enum State {NORMAL, DEAD, SCRIPTED, READY_INTERACT, INTERACT, CHANGING_BAG};
@@ -54,7 +55,6 @@ public class MainController : MonoBehaviour
 
     void attack() {
         if(Input.GetButtonDown("Fire1")) {
-            animator.SetTrigger("swing");
             if (animator.GetBool("sword")) swords.Attack();
             else bows.Attack();
         }

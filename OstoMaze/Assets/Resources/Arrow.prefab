@@ -242,5 +242,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   impactsound: {fileID: -5652575758954829997}
-  VELOCITY: 4.5
+  VELOCITY: 6
   timer: 5

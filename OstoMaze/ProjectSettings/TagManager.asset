@@ -17,6 +17,7 @@ TagManager:
   - Mobs
   - Obstacles
   - Arrow
+  - Swords
   layers:
   - Default
   - TransparentFX
