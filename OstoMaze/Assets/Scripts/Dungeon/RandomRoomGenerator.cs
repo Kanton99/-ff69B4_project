@@ -32,6 +32,7 @@ public class RandomRoomGenerator : MonoBehaviour
             if(!room_locations.ContainsKey(position)) {
                 if(i == num_rooms - 2) {
                     boss_room.transform.position = position;
+                    boss_room.transform.parent = master_room;
                     connect(extend_room, boss_room.GetComponent<Room>(), door_type);
                 } else {
                     Room room = generate(room_template, position, master_room);
@@ -51,7 +52,7 @@ public class RandomRoomGenerator : MonoBehaviour
                 rooms.Remove(extend_room);
         }
         room_template.SetActive(false);
-        Vector2 b_pos = rooms[rooms.Count - 1].transform.position+ rooms[rooms.Count - 1].center;
+        Vector2 b_pos = rooms[rooms.Count - 1].transform.position + rooms[rooms.Count - 1].center;
         GameObject boss = Instantiate(bossIcon, b_pos, Quaternion.identity);
         boss.SetActive(true);
         return spawn_point;
