@@ -18,9 +18,10 @@ public class MainController : MonoBehaviour
     public bool finished_animation = false; // to cotrol the shooting of the arrows and the swing of the sword
     public Joystick input;
     public Slider ostomy;
+    public HP_display HP;
 
     public Vector2 direction;
-    public enum State {NORMAL, DEAD, SCRIPTED, READY_INTERACT, INTERACT, CHANGING_BAG};
+    public enum State { NORMAL, DEAD, SCRIPTED, READY_INTERACT, INTERACT, CHANGING_BAG };
     public State state;
 
     public int hp;
@@ -28,7 +29,7 @@ public class MainController : MonoBehaviour
 
     // Quasi singleton paradigm, only a Character per scene, the oldest one takes priority.
     void Awake() {
-        if(GameObject.FindGameObjectsWithTag("Player").Length > 1)
+        if (GameObject.FindGameObjectsWithTag("Player").Length > 1)
             Destroy(this.gameObject);
     }
 
@@ -40,13 +41,13 @@ public class MainController : MonoBehaviour
 
     void move() {
 
-        Vector3 direction = new Vector2(Input.GetAxis("Horizontal") + input.Horizontal, Input.GetAxis("Vertical")+input.Vertical).normalized;
-        if(direction != Vector3.zero) {
+        Vector3 direction = new Vector2(Input.GetAxis("Horizontal") + input.Horizontal, Input.GetAxis("Vertical") + input.Vertical).normalized;
+        if (direction != Vector3.zero) {
             animator.SetBool("run", true);
             bool flip = body.flipX;
-            if(Vector3.Dot(direction, new Vector3(1,0,0)) < 0)
+            if (Vector3.Dot(direction, new Vector3(1, 0, 0)) < 0)
                 flip = true;
-            if(Vector3.Dot(direction, new Vector3(1,0,0)) > 0)
+            if (Vector3.Dot(direction, new Vector3(1, 0, 0)) > 0)
                 flip = false;
             arms.flipX = flip;
             body.flipX = flip;
@@ -89,7 +90,14 @@ public class MainController : MonoBehaviour
 
     public void TakeDamage(int damage) {
         hp -= damage;
+        HP.UpdateSprite(hp);
         animator.SetTrigger("wound");
+    }
+
+    public void AddHealth(int health)
+    {
+        hp += health;
+        HP.UpdateSprite(hp);
     }
 
     public void enterInteractionRange(IInteractible interactible) {
