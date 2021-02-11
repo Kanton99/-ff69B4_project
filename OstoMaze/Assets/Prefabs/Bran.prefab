@@ -447,6 +447,8 @@ MonoBehaviour:
   finished_animation: 0
   direction: {x: 0, y: 0}
   _curr_state: 0
+  hp: 10
+  bs: 5
 --- !u!212 &1671017347775885792
 SpriteRenderer:
   m_ObjectHideFlags: 0
