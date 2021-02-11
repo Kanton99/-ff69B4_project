@@ -13,7 +13,6 @@ public class Obstacles : MonoBehaviour
     public Transform getEnemies() {
         foreach(Transform child in transform)
             if(child.tag == "Mobs") {
-                Debug.Log("Found the mobs!");
                 return child;
             }
         return null;

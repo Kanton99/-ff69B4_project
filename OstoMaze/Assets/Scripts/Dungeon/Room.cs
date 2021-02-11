@@ -16,7 +16,6 @@ public class Room : MonoBehaviour
     public State curr_state;
 
     public void openPath(DoorType door_type) {
-        Debug.Log("Opening path!");
         Door new_door = doors[(int)door_type];
         new_door.setAvailable();
         available.Add(door_type);
@@ -26,7 +25,6 @@ public class Room : MonoBehaviour
     public void openPath(int door_type) {
         if(door_type < 0 || door_type >= 4)
             throw new ArgumentException("door_type must between 0 and 3");
-        Debug.Log("Opening path!");
         Door new_door = doors[door_type];
         new_door.setAvailable();
         available.Add((DoorType)door_type);
