@@ -38,7 +38,7 @@ public class MainController : MonoBehaviour
 
     void move() {
 
-        Vector3 direction = new Vector3(Input.GetAxis("Horizontal") + input.Horizontal, Input.GetAxis("Vertical")+input.Vertical,0).normalized;
+        Vector3 direction = new Vector2(Input.GetAxis("Horizontal") + input.Horizontal, Input.GetAxis("Vertical")+input.Vertical).normalized;
         if(direction != Vector3.zero) {
             animator.SetBool("run", true);
             bool flip = body.flipX;
