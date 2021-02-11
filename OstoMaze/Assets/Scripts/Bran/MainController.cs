@@ -23,7 +23,7 @@ public class MainController : MonoBehaviour
     public State _curr_state;
 
     public int hp;
-    public float bs;
+    public float bs;  // barra stomia
 
     // Quasi singleton paradigm, only a Character per scene, the oldest one takes priority.
     void Awake() {
@@ -78,9 +78,8 @@ public class MainController : MonoBehaviour
     }
 
     public void changeWeapon() {
-            bool toggle = animator.GetBool("sword");
-            animator.SetBool("sword", !toggle);
-        
+        bool toggle = animator.GetBool("sword");
+        animator.SetBool("sword", !toggle);
     }
 
     public void enterInteractionRange(IInteractible interactible) {

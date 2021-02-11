@@ -9,7 +9,6 @@ public class Arrow : MonoBehaviour
     private int index;
     private SpriteRenderer _sprite;
     private Vector3 _direction;
-    private bool is_playing;
     private bool has_hit = false;
 
     public float VELOCITY;

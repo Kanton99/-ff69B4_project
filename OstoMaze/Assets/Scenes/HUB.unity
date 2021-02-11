@@ -2921,14 +2921,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: SphereMob
       objectReference: {fileID: 0}
-    - target: {fileID: 8316202246543805869, guid: 8a8d6fac058ac094c94488029d991c6a, type: 3}
-      propertyPath: foods.Array.data[0]
-      value: 
-      objectReference: {fileID: 8138369890663584816, guid: 9fc829f4d335aab9c8ccaa2afd1f0aee, type: 3}
-    - target: {fileID: 8316202246543805869, guid: 8a8d6fac058ac094c94488029d991c6a, type: 3}
-      propertyPath: foods.Array.data[1]
-      value: 
-      objectReference: {fileID: 4347966713679320544, guid: 695d9a6ffcac6f44397b14a1fa8a9cbb, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a8d6fac058ac094c94488029d991c6a, type: 3}
 --- !u!95 &1641222164 stripped
@@ -3326,6 +3318,17 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1950304111 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2325325254147451348, guid: 66883fa56a7185046a777d41d9601fed, type: 3}
+  m_PrefabInstance: {fileID: 1412090804}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45977bbae16431c46a013576a1aea384, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!95 &2064055936 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 3161340272478400882, guid: 65fe0a1d3ef50917e835338d2a418147, type: 3}
@@ -3460,6 +3463,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9180525351279581319, guid: 12533865d4f5e0625ab82da997a427e2, type: 3}
+      propertyPath: input
+      value: 
+      objectReference: {fileID: 1950304111}
     - target: {fileID: 9180525351279581319, guid: 12533865d4f5e0625ab82da997a427e2, type: 3}
       propertyPath: transform
       value: 
