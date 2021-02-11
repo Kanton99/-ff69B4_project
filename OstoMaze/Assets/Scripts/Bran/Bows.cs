@@ -49,13 +49,15 @@ public class Bows : MonoBehaviour
     void Update() {
         if (player.finished_animation) {  // if string pulling animation is finished
             sound.Play();
-            Vector3 near = Nearest();
-            Vector3 spawn = player_pos.position;
-            Vector3 forward = new Vector3(0,0,1);
-            Vector3 up = Vector3.Cross(forward, near - spawn);
-            Arrow arrow = Instantiate(this._arrow, spawn, Quaternion.LookRotation(forward, up));
-            arrow.transform.parent = null;
-            arrow.Shoot(spawn, near);
+            if (mobs.Count > 0) {
+                Vector3 near = Nearest();
+                Vector3 spawn = player_pos.position;
+                Vector3 forward = new Vector3(0,0,1);
+                Vector3 up = Vector3.Cross(forward, near - spawn);
+                Arrow arrow = Instantiate(this._arrow, spawn, Quaternion.LookRotation(forward, up));
+                arrow.transform.parent = null;
+                arrow.Shoot(spawn, near);
+            }
         }
     }
 }
