@@ -22,6 +22,7 @@ public class MobController : MonoBehaviour
     private AudioSource[] attacksounds;
     private SpriteRenderer _sprite;
     private Projectile _projectile;
+    private Food _food;
 
     public enum State {SPAWNING, IDLE, MOVING, ATTACKING};
     public State _curr_state;
@@ -36,9 +37,9 @@ public class MobController : MonoBehaviour
 
     private Vector3 first_available_direction() {
         foreach(Vector3 dir in _directions) {
-            Debug.DrawRay(transform.position + _offset, dir * DIST_MOVEMENT, Color.red, 2);
+        //    Debug.DrawRay(transform.position + _offset, dir * DIST_MOVEMENT, Color.red, 2);
             if (!Physics2D.Raycast(transform.position + _offset, dir, DIST_MOVEMENT)) {
-                Debug.DrawRay(transform.position + _offset, dir * DIST_MOVEMENT, Color.green, 2, false);
+         //       Debug.DrawRay(transform.position + _offset, dir * DIST_MOVEMENT, Color.green, 2, false);
                 return dir;
             }
         }
@@ -72,9 +73,9 @@ public class MobController : MonoBehaviour
     {
         attacksounds[Random.RandomRange(0, 2)].Play();
         Vector3 spawn = this.transform.position - new Vector3(0, 0.5f, 0);  // mob position - offset
-        Projectile projectile = Instantiate(this._projectile, spawn, new Quaternion(0,0,0,0));
+        Projectile newprojectile = Instantiate(this._projectile, spawn, new Quaternion(0,0,0,0));
         Vector3 direction = (_player.transform.position - transform.position).normalized;
-        projectile.Shoot(spawn, direction);
+        newprojectile.Shoot(spawn, direction);
     }
 
     public void TakeDamage(float damage) {
@@ -84,6 +85,9 @@ public class MobController : MonoBehaviour
     }
 
     private void Die() {
+        Food newfood = Instantiate(this._food, this.transform.position, new Quaternion(0,0,0,0));
+        newfood.transform.parent = null;
+        newfood.Drop();
         Destroy(this.gameObject);
     }
 
@@ -114,7 +118,7 @@ public class MobController : MonoBehaviour
         _sprite = GetComponent<SpriteRenderer>();
         attacksounds = GetComponents<AudioSource>();
         _projectile = Resources.Load<Projectile>("Projectile");
-
+        _food = Resources.Load<Food>("Food");
         _curr_state = State.IDLE;
     }
 
