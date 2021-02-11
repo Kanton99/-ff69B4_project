@@ -71,6 +71,10 @@ public class GameManager : MonoBehaviour
             yield return null;
     }
 
+    public void changeStateTo(State state) {
+        curr_state = state;
+    }
+
     void Update() {
         switch(curr_state) {
             case State.HUB:
@@ -79,11 +83,11 @@ public class GameManager : MonoBehaviour
             break;
             case State.TO_HUB:
                 StartCoroutine(loadHUB());
-                curr_state = State.HUB;
+                changeStateTo(State.HUB);
             break;
             case State.TO_DUNGEON:
                 StartCoroutine(loadDungeon());
-                curr_state = State.DUNGEON;
+                changeStateTo(State.DUNGEON);
             break;
         }
 
