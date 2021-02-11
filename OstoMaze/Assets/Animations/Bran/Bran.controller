@@ -548,7 +548,7 @@ AnimatorStateMachine:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: as
+  m_Name: Attacking
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 6754201280133594135}

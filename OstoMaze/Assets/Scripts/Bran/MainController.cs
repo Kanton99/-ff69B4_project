@@ -34,6 +34,7 @@ public class MainController : MonoBehaviour
     // Start is called before the first frame update
     void Start() {
         _curr_state = State.NORMAL;
+        animator = GetComponent<Animator>();
     }
 
     void move() {
@@ -78,9 +79,11 @@ public class MainController : MonoBehaviour
     }
 
     public void changeWeapon() {
+        if (_curr_state == State.NORMAL)
+        {
             bool toggle = animator.GetBool("sword");
             animator.SetBool("sword", !toggle);
-        
+        }
     }
 
     public void enterInteractionRange(IInteractible interactible) {
