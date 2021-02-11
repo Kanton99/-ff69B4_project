@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class NPCController : MonoBehaviour, IInteractible {
     public float TIMER;
@@ -8,7 +9,7 @@ public class NPCController : MonoBehaviour, IInteractible {
     public float DIST_MOVEMENT;
     public bool IS_STATIONARY;
 
-    public float _timer;
+    private float _timer;
     private Vector3 _offset;
     private Vector3[] _directions = new Vector3[4];
     private Vector3 _curr_direction = Vector3.zero;
@@ -24,6 +25,7 @@ public class NPCController : MonoBehaviour, IInteractible {
     public Animator char_anim;
     public Animator cloud_anim;
     public Dialog dialog;
+    public UnityEvent interaction_end;
 
     private void shuffle(Vector3[] array) {
       for(int i = 0; i < array.Length; i++) {
@@ -35,7 +37,12 @@ public class NPCController : MonoBehaviour, IInteractible {
     }
 
     public bool interact() {
-        return talk();
+        if(talk())
+            return true;
+        else {
+            interaction_end.Invoke();
+            return false;
+        }
     }
 
     public void enterInteractionRange(GameObject gameObject) {
@@ -70,7 +77,7 @@ public class NPCController : MonoBehaviour, IInteractible {
     }
 
     public void readyTalk(GameObject player) {
-        char_anim.SetBool("Walk", false);
+        if (char_anim != null) char_anim.SetBool("Walk", false);
         cloud_anim.SetBool("Visible", true);
         _player = player;
         _rb.velocity = Vector3.zero;
@@ -140,7 +147,7 @@ public class NPCController : MonoBehaviour, IInteractible {
                 }
                 _curr_state = State.MOVING;
                 _timer = DIST_MOVEMENT / VELOCITY;
-                char_anim.SetBool("Walk", true);
+                if (char_anim != null) char_anim.SetBool("Walk", true);
             }
             break;
         case State.MOVING:
@@ -149,7 +156,7 @@ public class NPCController : MonoBehaviour, IInteractible {
             if(_timer < 0) {
                 _rb.velocity = Vector3.zero;
                 _timer = TIMER;
-                char_anim.SetBool("Walk", false);
+                if (char_anim != null) char_anim.SetBool("Walk", false);
                 _curr_state = State.IDLE;
             }
             break;

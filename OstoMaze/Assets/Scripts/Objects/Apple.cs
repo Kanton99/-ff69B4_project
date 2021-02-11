@@ -1,17 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Apple : MonoBehaviour, IInteractible
 {
-    public SpriteRenderer sprite;
     public bool _talking = false;
 
     public Animator cloud_anim;
     public Dialog dialog;
+    public UnityEvent interaction_over;
 
     public bool interact() {
-        return talk();
+        if(talk())
+            return true;
+        else {
+            interaction_over.Invoke();
+            this.gameObject.SetActive(false);
+            return false;
+        }
     }
 
     public void enterInteractionRange(GameObject gameObject) {
