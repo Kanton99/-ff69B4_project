@@ -50,7 +50,7 @@ MonoBehaviour:
   VELOCITY: 2
   hp: 1
   bs: 1
-  player_velocity: -1
+  player_velocity: -0.5
   is_cooked: 0
   eating_sound: {fileID: 5997440232434165180}
 --- !u!82 &5997440232434165180

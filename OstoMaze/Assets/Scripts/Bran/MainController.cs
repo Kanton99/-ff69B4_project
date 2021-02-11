@@ -89,6 +89,7 @@ public class MainController : MonoBehaviour
 
     public void TakeDamage(int damage) {
         hp -= damage;
+        animator.SetTrigger("wound");
     }
 
     public void enterInteractionRange(IInteractible interactible) {

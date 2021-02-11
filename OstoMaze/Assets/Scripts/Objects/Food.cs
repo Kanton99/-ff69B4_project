@@ -46,7 +46,7 @@ public class Food : MonoBehaviour
         if (_timer <= 0) Destroy(this.gameObject);
         if (!eating_sound.isPlaying && collected) Destroy(this.gameObject);
 
-        if (dist < 0.3f && !collected) {
+        if (dist < 0.5f && !collected) {
             collect();
         }
     }
