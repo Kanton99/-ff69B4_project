@@ -12,6 +12,7 @@ public class Apple : MonoBehaviour, IInteractible
     public UnityEvent interaction_over;
 
     public bool interact() {
+        Debug.Log("Interacting with Apple!");
         if(talk())
             return true;
         else {

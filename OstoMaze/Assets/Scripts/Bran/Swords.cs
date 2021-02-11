@@ -6,8 +6,6 @@ public class Swords : MonoBehaviour
 {
     public AudioSource[] swords;
     public Animator player_anim;
-    public MainController player;
-    List<MobController> mobs = new List<MobController>();
 
     // Start is called before the first frame update
     void Start()
@@ -16,27 +14,11 @@ public class Swords : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D coll) {
-        MobController mob = coll.gameObject.GetComponent<MobController>();
-        mobs.Add(mob);
-    }
-
-    private void OnTriggerExit2D(Collider2D coll) {
-        MobController mob = coll.gameObject.GetComponent<MobController>();
-        mobs.Remove(mob);
+        coll.gameObject.GetComponent<MobController>().TakeDamage(3);
     }
 
     public void Attack() {
+        swords[Random.Range(0, swords.Length)].Play();
         player_anim.SetTrigger("swing");
-    }
-
-    void Update() {
-        if (player.finished_animation) {  // if sword swinging animation is finished
-            swords[Random.Range(0, 3)].Play();
-            if (mobs.Count > 0) {
-                foreach (MobController mob in mobs) {
-                    mob.TakeDamage(3);
-                }
-            }
-        }
     }
 }

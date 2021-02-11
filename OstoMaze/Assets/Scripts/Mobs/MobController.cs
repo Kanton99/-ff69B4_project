@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MobController : MonoBehaviour
-{
+public class MobController : MonoBehaviour, IEnemy {
     public float TIMER;
     public float VELOCITY; // Velocita di movimento
     public float DIST_MOVEMENT;
@@ -38,13 +37,9 @@ public class MobController : MonoBehaviour
     }
 
     private Vector3 first_available_direction() {
-        foreach(Vector3 dir in _directions) {
-        //    Debug.DrawRay(transform.position + _offset, dir * DIST_MOVEMENT, Color.red, 2);
-            if (!Physics2D.Raycast(transform.position + _offset, dir, DIST_MOVEMENT)) {
-         //       Debug.DrawRay(transform.position + _offset, dir * DIST_MOVEMENT, Color.green, 2, false);
+        foreach(Vector3 dir in _directions)
+            if (!Physics2D.Raycast(transform.position + _offset, dir, DIST_MOVEMENT))
                 return dir;
-            }
-        }
         return Vector3.zero;
     }
 
@@ -86,6 +81,10 @@ public class MobController : MonoBehaviour
             mob_anim.Play("Death");
     }
 
+    public Vector3 GetPosition() {
+        return transform.position;
+    }
+
     private void Die() {
         index = Random.Range(2, 4);
         sounds[index].Play();
@@ -111,8 +110,7 @@ public class MobController : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start() {
         _rb = GetComponent<Rigidbody2D>();
 
         _directions[0] = new Vector3(0, -1, 0);

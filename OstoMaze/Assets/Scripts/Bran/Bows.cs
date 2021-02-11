@@ -10,7 +10,7 @@ public class Bows : MonoBehaviour
     public Transform player_pos;
     public Animator player_anim;
     public bool is_finished = false;
-    List<MobController> mobs = new List<MobController>();
+    List<IEnemy> mobs = new List<IEnemy>();
 
     // Start is called before the first frame update
     void Start()
@@ -19,22 +19,20 @@ public class Bows : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D coll) {
-        MobController mob = coll.gameObject.GetComponent<MobController>();
-        mobs.Add(mob);
+        mobs.Add(coll.gameObject.GetComponent<IEnemy>());
     }
 
     private void OnTriggerExit2D(Collider2D coll) {
-        MobController mob = coll.gameObject.GetComponent<MobController>();
-        mobs.Remove(mob);
+        mobs.Remove(coll.gameObject.GetComponent<IEnemy>());
     }
 
     private Vector3 Nearest() {
-        float min_dist = (player_pos.position - mobs[0].transform.position).magnitude;
-        Vector3 nearest = mobs[0].transform.position;
-        foreach (MobController mob in mobs) {
-            float dist = (player_pos.position - mob.transform.position).magnitude;
+        float min_dist = (player_pos.position - mobs[0].GetPosition()).magnitude;
+        Vector3 nearest = mobs[0].GetPosition();
+        foreach (IEnemy mob in mobs) {
+            float dist = (player_pos.position - mob.GetPosition()).magnitude;
             if (dist < min_dist) {
-                nearest = mob.transform.position;
+                nearest = mob.GetPosition();
                 min_dist = dist;
             }
         }
@@ -46,8 +44,9 @@ public class Bows : MonoBehaviour
             player_anim.SetTrigger("shooting");  // start animation
         }
     }
+
     void Update() {
-        if (player.finished_animation) {  // if string pulling animation is finished
+        if (player.finished_animation) {
             sound.Play();
             if (mobs.Count > 0) {
                 Vector3 near = Nearest();

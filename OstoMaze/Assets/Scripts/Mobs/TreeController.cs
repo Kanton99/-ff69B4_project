@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class TreeController : MonoBehaviour
+public class TreeController : MonoBehaviour, IEnemy
 {
     public float TIMER;
     public string char_name;
-    public float _timer;
+    private float _timer;
 
-    public Animator mob_anim;
-    public UnityEvent dying_event;
+    public Animator animator;
+    public UnityEvent dead_event;
 
     private Vector3 _offset;
 
@@ -21,30 +21,54 @@ public class TreeController : MonoBehaviour
     private Projectile _projectile;
 
     [SerializeField]
-    private int _hp = 0;
+    private float _hp = 0;
+    [SerializeField]
+    private Transform bullet_spawn;
 
-    public enum State {SPAWNING, IDLE, MOVING, ATTACKING, DYING};
-    public State _curr_state;
 
-    public GameObject getPlayer() {
-        return _player;
+    private Vector2 Rotate(Vector2 v, float delta)
+    {
+        return new Vector2(
+            v.x * Mathf.Cos(delta) - v.y * Mathf.Sin(delta),
+            v.x * Mathf.Sin(delta) + v.y * Mathf.Cos(delta)
+        );
     }
 
-    private void Attack()
-    {
-        switch(Random.Range(0, 2)) {
+    private void Die() {
+        dead_event.Invoke();
+        gameObject.SetActive(false);
+    }
+
+    private void randomAttack() {
+        Vector3 dir = _player.gameObject.transform.position - this.transform.position;
+        switch(Random.Range(0,2)) {
             case 0:
+                ShootMultiples(dir, 10, Mathf.PI / 2);
                 break;
             case 1:
-                break;
-            case 2:
+                ShootMultiples(dir, 15, Mathf.PI);
                 break;
         }
-        _attacksounds[Random.Range(0, _attacksounds.Length)].Play();
-        Vector3 spawn = this.transform.position - new Vector3(0, 0.5f, 0);  // mob position - offset
+    }
+
+    private void Shoot(Vector3 dir) {
+        Vector3 spawn = bullet_spawn.position;
         Projectile projectile = Instantiate(this._projectile, spawn, new Quaternion(0,0,0,0));
+        projectile.VELOCITY = 2;
         projectile.transform.parent = null;
-        projectile.Shoot(spawn, _player.transform.position);
+        projectile.Shoot(spawn, dir);
+    }
+
+    public void ShootPlayer(int num) {
+        Vector3 dir = _player.gameObject.transform.position - this.transform.position;
+        ShootMultiples(dir, num, Mathf.PI / 2);
+    }
+
+    private void ShootMultiples(Vector3 dir, int num, float radians) {
+        float start = -(radians / 2);
+        float step = radians / num;
+        for(float i = start; i < radians/2; i += step)
+            Shoot(Rotate(dir, i));
     }
 
     // Start is called before the first frame update
@@ -54,31 +78,27 @@ public class TreeController : MonoBehaviour
         _sprite = GetComponent<SpriteRenderer>();
         _attacksounds = GetComponents<AudioSource>();
         _projectile = Resources.Load<Projectile>("Projectile");
-
-        _curr_state = State.IDLE;
+        _player = GameObject.FindWithTag("Player");
     }
 
-    public void takeDamage(int damage) {
+    public void TakeDamage(float damage) {
         this._hp -= damage;
-        if(this._hp <= 0) {
-            dying_event.Invoke();
-        }
+        if(this._hp <= 0) animator.Play("Dying");
+    }
+
+    public Vector3 GetPosition() {
+        return transform.position;
+    }
+
+    void OnTriggerEnter2D(Collider2D coll) {
+        if(coll.gameObject.tag == "Arrow") TakeDamage(1);
     }
 
     // Update is called once per frame
     void Update() {
-        switch(_curr_state) {
-            case State.SPAWNING:
-                break;
-            case State.IDLE:
-                    mob_anim.SetBool("attack", false);
-                break;
-            case State.ATTACKING:
-                if(Vector3.Dot(_player.transform.position - transform.position, transform.right) > 0)
-                    _sprite.flipX = true;
-                if(Vector3.Dot( _player.transform.position - transform.position, transform.right) < 0)
-                    _sprite.flipX = false;
-                break;
+        _timer += Time.deltaTime;
+        if(_timer > TIMER) {
+            animator.SetTrigger("attack");
         }
     }
 }

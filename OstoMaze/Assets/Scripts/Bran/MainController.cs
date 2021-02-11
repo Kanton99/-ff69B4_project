@@ -12,6 +12,7 @@ public class MainController : MonoBehaviour
     public SpriteRenderer body;
     public Rigidbody2D rigid;
     public IInteractible interactible;
+    public Slider slider;
     public Swords swords;
     public Bows bows;
     public bool is_playing;
@@ -23,7 +24,7 @@ public class MainController : MonoBehaviour
     public State state;
 
     public int hp;
-    public float bs;  // barra stomia
+    public float bs;  // barra stomia [0, 50]
 
     // Quasi singleton paradigm, only a Character per scene, the oldest one takes priority.
     void Awake() {
@@ -38,18 +39,13 @@ public class MainController : MonoBehaviour
     }
 
     void move() {
-
         Vector3 direction = new Vector2(Input.GetAxis("Horizontal") + input.Horizontal, Input.GetAxis("Vertical")+input.Vertical).normalized;
         if(direction != Vector3.zero) {
             animator.SetBool("run", true);
-            bool flip = body.flipX;
             if(Vector3.Dot(direction, new Vector3(1,0,0)) < 0)
-                flip = true;
+                flip(false);
             if(Vector3.Dot(direction, new Vector3(1,0,0)) > 0)
-                flip = false;
-            arms.flipX = flip;
-            body.flipX = flip;
-            bow.flipX = flip;
+                flip(true);
             rigid.velocity = moving_speed * direction;
         } else
             stop();
@@ -65,6 +61,8 @@ public class MainController : MonoBehaviour
         {
             if (animator.GetBool("sword")) swords.Attack();
             else bows.Attack();
+        } else if (state == State.INTERACT || state == State.READY_INTERACT) { // Emergency fix!
+            interact();
         }
     }
 
@@ -103,24 +101,36 @@ public class MainController : MonoBehaviour
     }
 
     public void change_bag() {
-        if(Input.GetButtonDown("Fire2")) {
-            state = State.CHANGING_BAG;
-            animator.SetTrigger("ChangeBag");
-        }
+        state = State.CHANGING_BAG;
+        animator.SetTrigger("ChangeBag");
+    }
+
+    public void reset_ostomy() {
+        bs = 0;
     }
 
     public void change(State new_state) {
         state = new_state;
     }
 
+    public void flip() {
+        Vector3 scale = transform.localScale;
+        scale.x *= -1;
+        transform.localScale = scale;
+    }
+
+    public void flip(bool look_right) {
+        if(look_right && transform.localScale.x < 0)
+            flip();
+        else if(!look_right && transform.localScale.x > 0)
+            flip();
+    }
+
     // Update is called once per frame
     void Update() {
         switch(state){
             case State.NORMAL:
-                change_bag();
                 move();
-                //attack();
-                //changeWeapon();
                 break;
             case State.READY_INTERACT:
                 move();
