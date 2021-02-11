@@ -141,11 +141,11 @@ public class MainController : MonoBehaviour
     }
 
     public void Respawn() {
-
+        print("respawn");
     }
 
     public void Die() {
-
+        print("die");
     }
 
     // Update is called once per frame
@@ -153,7 +153,8 @@ public class MainController : MonoBehaviour
         bs += 0.01f * Time.deltaTime;
         if (hp >= 10) hp = 10;
         if (bs >= 1.0f) bs = 1.0f;
-        switch(state){
+
+        switch(state) {
             case State.NORMAL:
                 move();
                 break;

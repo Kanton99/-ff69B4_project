@@ -2169,7 +2169,7 @@ PrefabInstance:
     - target: {fileID: 4811778899190937602, guid: 65fe0a1d3ef50917e835338d2a418147, type: 3}
       propertyPath: char_anim
       value: 
-      objectReference: {fileID: 1641222164}
+      objectReference: {fileID: 1888566465}
     - target: {fileID: 4811778899190937602, guid: 65fe0a1d3ef50917e835338d2a418147, type: 3}
       propertyPath: char_name
       value: George
