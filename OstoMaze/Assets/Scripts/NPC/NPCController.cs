@@ -92,7 +92,11 @@ public class NPCController : MonoBehaviour, IInteractible {
     }
 
     public bool talk() {
-        leaveReadyTalk();
+        if(_curr_state == State.READY_TALK) {
+            cloud_anim.SetBool("Visible", false);
+            dialog.clear();
+            _curr_state = State.READY_TALK;
+        }
         if(_curr_state != State.TALK) {
             _curr_state = State.TALK;
             dialog.animator.SetBool("IsOpen", true);

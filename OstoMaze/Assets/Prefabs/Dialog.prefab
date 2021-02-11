@@ -507,17 +507,9 @@ MonoBehaviour:
   npc: {fileID: 0}
   my_name: 
   dialog:
-  - 'Vuoi sentire una barzelletta?
-
-    Ok, preparati, che e` una forte!'
-  - Allora un tester entra in un bar, e ordina 1 birra, poi ne 99999, poi ne ordina
-    0.5, poi ordina 0 birre...
-  - ...ed infine ordina -1 birra. E cosi se ne va soddisfatto.
-  - 'Dopodiche entra un cliente, e chiede dove e` il bagno.
-
-    Il bar prende fuoco
-    ed esplode!'
-  - Che te ne pare?
+  - Io non sopporto la carne rossa, ogni volta che la mangio...
+  - la mia pancia fa sempre dei rumori strani. Preferisco mille volte una bella mela!
+  - Forse dovrei diventare fruttariano...
 --- !u!1 &7059854116472609438
 GameObject:
   m_ObjectHideFlags: 0

@@ -64,8 +64,6 @@ public class MainController : MonoBehaviour
         {
             if (animator.GetBool("sword")) swords.Attack();
             else bows.Attack();
-        } else if (state == State.INTERACT || state == State.READY_INTERACT) { // Emergency fix!
-            interact();
         }
     }
 
@@ -111,7 +109,7 @@ public class MainController : MonoBehaviour
 
     public void leaveInteractionRange() {
         interactible.leaveInteractionRange();
-        this.interactible = null;
+        interactible = null;
         state = State.NORMAL;
     }
 
@@ -143,11 +141,11 @@ public class MainController : MonoBehaviour
     }
 
     public void Respawn() {
-    
+
     }
 
     public void Die() {
-        
+
     }
 
     // Update is called once per frame
@@ -159,11 +157,9 @@ public class MainController : MonoBehaviour
                 break;
             case State.READY_INTERACT:
                 move();
-                //interact();
                 break;
             case State.INTERACT:
                 stop();
-                //interact();
                 break;
             // TODO: Needs to be corrected!
             case State.CHANGING_BAG:

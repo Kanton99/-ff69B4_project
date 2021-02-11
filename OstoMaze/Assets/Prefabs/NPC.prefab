@@ -789,6 +789,21 @@ PrefabInstance:
       propertyPath: npc
       value: 
       objectReference: {fileID: 4811778899190937602}
+    - target: {fileID: 4086117593718384592, guid: f53fee069dbaf150fad16677a0eef6f6, type: 3}
+      propertyPath: dialog.Array.data[0]
+      value: 'Vuoi sentire una barzelletta?
+
+        Ok, preparati, che e` una forte!'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4086117593718384592, guid: f53fee069dbaf150fad16677a0eef6f6, type: 3}
+      propertyPath: dialog.Array.data[1]
+      value: Allora un tester entra in un bar, e ordina 1 birra, poi ne 99999, poi
+        ne ordina 0.5, poi ordina 0 birre...
+      objectReference: {fileID: 0}
+    - target: {fileID: 4086117593718384592, guid: f53fee069dbaf150fad16677a0eef6f6, type: 3}
+      propertyPath: dialog.Array.data[2]
+      value: ...ed infine ordina -1 birra. E cosi se ne va soddisfatto.
+      objectReference: {fileID: 0}
     - target: {fileID: 6113277677005928972, guid: f53fee069dbaf150fad16677a0eef6f6, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
