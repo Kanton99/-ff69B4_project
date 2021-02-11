@@ -8,8 +8,6 @@ public class HP_display : MonoBehaviour
     public Image[] sprites;
     public GameObject origin;
 
-    [Range(0,10)]
-    public int hp = 10;
     const int max_hp = 10;
     Image[] hearts;
     private void Start()
@@ -23,8 +21,11 @@ public class HP_display : MonoBehaviour
         }
     }
 
-    public void UpdateSprite()
+
+
+    public void UpdateSprite(int hp)
     {
+        //assunto che l'hp massima è 10;
         int i;
         for(i = 0; i < hp; i++)
         {
