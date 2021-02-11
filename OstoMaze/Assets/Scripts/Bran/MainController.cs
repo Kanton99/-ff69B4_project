@@ -18,6 +18,9 @@ public class MainController : MonoBehaviour
     public bool is_playing;
     public bool finished_animation = false; // to cotrol the shooting of the arrows and the swing of the sword
     public Joystick input;
+    public AudioSource die_sound;
+    public AudioSource respawn_sound;
+    private bool dead = false;
 
     public Vector2 direction;
     public enum State { NORMAL, DEAD, SCRIPTED, READY_INTERACT, INTERACT, CHANGING_BAG };
@@ -87,6 +90,12 @@ public class MainController : MonoBehaviour
     public void TakeDamage(int damage) {
         hp -= damage;
         animator.SetTrigger("wound");
+        if (hp <= 0 && !dead) {
+            dead = true;
+            die_sound.Play();
+            animator.Play("Death");
+            animator.SetLayerWeight(animator.GetLayerIndex("Wounded"), 0);
+        }
     }
 
     public void AddHealth(int health)

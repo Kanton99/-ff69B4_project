@@ -112,28 +112,8 @@ PrefabInstance:
       value: -0.19379616
       objectReference: {fileID: 0}
     - target: {fileID: 8316202246543805869, guid: 8a8d6fac058ac094c94488029d991c6a, type: 3}
-      propertyPath: hp
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 8316202246543805869, guid: 8a8d6fac058ac094c94488029d991c6a, type: 3}
       propertyPath: char_name
       value: Triangle
       objectReference: {fileID: 0}
-    - target: {fileID: 8316202246543805869, guid: 8a8d6fac058ac094c94488029d991c6a, type: 3}
-      propertyPath: foods.Array.size
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 8316202246543805869, guid: 8a8d6fac058ac094c94488029d991c6a, type: 3}
-      propertyPath: foods.Array.data[3]
-      value: 
-      objectReference: {fileID: 4171938036606220020, guid: bb9d954b725e45149961e9826fd89e9b, type: 3}
-    - target: {fileID: 8316202246543805869, guid: 8a8d6fac058ac094c94488029d991c6a, type: 3}
-      propertyPath: foods.Array.data[4]
-      value: 
-      objectReference: {fileID: 4956864840057289866, guid: 654d13e48aebc1c4e9569d83fcd71ada, type: 3}
-    - target: {fileID: 8316202246543805869, guid: 8a8d6fac058ac094c94488029d991c6a, type: 3}
-      propertyPath: foods.Array.data[5]
-      value: 
-      objectReference: {fileID: 3293383317758203797, guid: 98a95254295387e41ac7a175b8a43355, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a8d6fac058ac094c94488029d991c6a, type: 3}
