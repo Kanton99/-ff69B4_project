@@ -29,6 +29,8 @@ public class Projectile: MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D coll)
     {
+        GameObject player = GameObject.FindWithTag("Player");
+        player.GetComponent<MainController>().TakeDamage(1);
         has_hit = true;
         index = Random.Range(0, impactsounds.Length);
         impactsounds[index].Play();
