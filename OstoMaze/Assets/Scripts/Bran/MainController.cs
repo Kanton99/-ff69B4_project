@@ -20,6 +20,9 @@ public class MainController : MonoBehaviour
     public enum State {NORMAL, DEAD, SCRIPTED, READY_INTERACT, INTERACT, CHANGING_BAG};
     public State _curr_state;
 
+    public int hp;
+    public float bs;
+
     // Quasi singleton paradigm, only a Character per scene, the oldest one takes priority.
     void Awake() {
         if(GameObject.FindGameObjectsWithTag("Player").Length > 1)
