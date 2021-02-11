@@ -27,7 +27,7 @@ public class Food : MonoBehaviour
 
     void collect() {
         _player.hp += this.hp;
-        _player.bs += this.bs;
+        _player.bs += this.bs/50;
         eating_sound.Play();
         collected = true;
     }

@@ -178,7 +178,7 @@ MonoBehaviour:
   RADIUS: 1.5
   VELOCITY: 2
   hp: 2
-  bs: 4
+  bs: 5
   player_velocity: -1
   is_cooked: 0
   eating_sound: {fileID: 2748490668721283188}
