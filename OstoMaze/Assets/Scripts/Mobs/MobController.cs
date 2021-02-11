@@ -82,8 +82,11 @@ public class MobController : MonoBehaviour
 
     public void TakeDamage(float damage) {
         this.hp -= damage; //Damage computation
-        if (hp <= 0)
+        mob_anim.SetTrigger("wound");
+        if (hp <= 0) {
             mob_anim.Play("Death");
+            mob_anim.SetLayerWeight(mob_anim.GetLayerIndex("Wounded"), 0);
+        }
     }
 
     private void Die() {

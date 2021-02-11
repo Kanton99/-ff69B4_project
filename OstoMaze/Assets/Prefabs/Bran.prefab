@@ -446,9 +446,9 @@ MonoBehaviour:
   finished_animation: 0
   input: {fileID: 0}
   direction: {x: 0, y: 0}
-  _curr_state: 0
+  state: 0
   hp: 10
-  bs: 5
+  bs: 0
 --- !u!1 &1220100379156757641
 GameObject:
   m_ObjectHideFlags: 0
