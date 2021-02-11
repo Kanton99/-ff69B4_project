@@ -484,7 +484,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3425491179797949570, guid: 66883fa56a7185046a777d41d9601fed, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: change_bag
+      value: changeWeapon
       objectReference: {fileID: 0}
     - target: {fileID: 3425491179797949570, guid: 66883fa56a7185046a777d41d9601fed, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -2053,9 +2053,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9180525351279581319, guid: 12533865d4f5e0625ab82da997a427e2, type: 3}
+      propertyPath: bs
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9180525351279581319, guid: 12533865d4f5e0625ab82da997a427e2, type: 3}
       propertyPath: input
       value: 
       objectReference: {fileID: 1215680945}
+    - target: {fileID: 9180525351279581319, guid: 12533865d4f5e0625ab82da997a427e2, type: 3}
+      propertyPath: ostomy
+      value: 
+      objectReference: {fileID: 2105810320}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12533865d4f5e0625ab82da997a427e2, type: 3}
 --- !u!1 &2101738611

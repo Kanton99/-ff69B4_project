@@ -17,6 +17,7 @@ public class MainController : MonoBehaviour
     public bool is_playing;
     public bool finished_animation = false; // to cotrol the shooting of the arrows and the swing of the sword
     public Joystick input;
+    public Slider ostomy;
 
     public Vector2 direction;
     public enum State {NORMAL, DEAD, SCRIPTED, READY_INTERACT, INTERACT, CHANGING_BAG};
@@ -107,10 +108,9 @@ public class MainController : MonoBehaviour
     }
 
     public void change_bag() {
-        if(Input.GetButtonDown("Fire2")) {
-            state = State.CHANGING_BAG;
-            animator.SetTrigger("ChangeBag");
-        }
+        state = State.CHANGING_BAG;
+        animator.SetTrigger("ChangeBag");
+        bs = 0;
     }
 
     public void change(State new_state) {
@@ -119,9 +119,11 @@ public class MainController : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
+        bs += 0.01f * Time.deltaTime;
+        ostomy.value = bs;
         switch(state){
             case State.NORMAL:
-                change_bag();
+                //change_bag();
                 move();
                 //attack();
                 //changeWeapon();
