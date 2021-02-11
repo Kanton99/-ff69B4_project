@@ -20,7 +20,7 @@ public class MainController : MonoBehaviour
 
     public Vector2 direction;
     public enum State {NORMAL, DEAD, SCRIPTED, READY_INTERACT, INTERACT, CHANGING_BAG};
-    public State _curr_state;
+    public State state;
 
     public int hp;
     public float bs;  // barra stomia
@@ -33,7 +33,7 @@ public class MainController : MonoBehaviour
 
     // Start is called before the first frame update
     void Start() {
-        _curr_state = State.NORMAL;
+        state = State.NORMAL;
         animator = GetComponent<Animator>();
     }
 
@@ -61,7 +61,7 @@ public class MainController : MonoBehaviour
     }
 
     public void attack() {
-        if (_curr_state == State.NORMAL)
+        if (state == State.NORMAL)
         {
             if (animator.GetBool("sword")) swords.Attack();
             else bows.Attack();
@@ -69,17 +69,17 @@ public class MainController : MonoBehaviour
     }
 
     public void interact() {
-        if (_curr_state == State.INTERACT || _curr_state == State.READY_INTERACT)
+        if (state == State.INTERACT || state == State.READY_INTERACT)
         {
             if (interactible.interact())
-                _curr_state = State.INTERACT;
+                state = State.INTERACT;
             else
-                _curr_state = State.NORMAL;
-        }   
+                state = State.NORMAL;
+        }
     }
 
     public void changeWeapon() {
-        if (_curr_state == State.NORMAL)
+        if (state == State.NORMAL)
         {
             bool toggle = animator.GetBool("sword");
             animator.SetBool("sword", !toggle);
@@ -89,33 +89,33 @@ public class MainController : MonoBehaviour
     public void enterInteractionRange(IInteractible interactible) {
         this.interactible = interactible;
         interactible.enterInteractionRange(this.gameObject);
-        _curr_state = State.READY_INTERACT;
+        state = State.READY_INTERACT;
     }
 
     public void leaveInteractionRange() {
         interactible.leaveInteractionRange();
         this.interactible = null;
-        _curr_state = State.NORMAL;
+        state = State.NORMAL;
     }
 
     public bool isBusy() {
-        return _curr_state == State.READY_INTERACT || _curr_state == State.INTERACT;
+        return state == State.READY_INTERACT || state == State.INTERACT;
     }
 
     public void change_bag() {
         if(Input.GetButtonDown("Fire2")) {
-            _curr_state = State.CHANGING_BAG;
+            state = State.CHANGING_BAG;
             animator.SetTrigger("ChangeBag");
         }
     }
 
-    private void change(State new_state) {
-        _curr_state = new_state;
+    public void change(State new_state) {
+        state = new_state;
     }
 
     // Update is called once per frame
     void Update() {
-        switch(_curr_state){
+        switch(state){
             case State.NORMAL:
                 change_bag();
                 move();

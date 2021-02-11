@@ -35,6 +35,7 @@ public class GameManager : MonoBehaviour
     private void animationPlaying() { is_playing = true; }
     private void animationNotPlaying () { is_playing = false; }
     private IEnumerator fadeIn() {
+        is_playing = true;
         animator.SetBool("ChangingScene", true);
         while(is_playing) yield return null;
     }
@@ -47,6 +48,7 @@ public class GameManager : MonoBehaviour
         GameObject generator = GameObject.FindWithTag("RoomGenerator");
         Vector3 spawn = generator.GetComponent<RandomRoomGenerator>().generateRooms(num_rooms);
         player.gameObject.transform.position = spawn;
+        player.change(MainController.State.NORMAL);
     }
 
     public IEnumerator loadDungeon() {
@@ -60,6 +62,7 @@ public class GameManager : MonoBehaviour
     private void initHub() {
         GameObject spawn_point = GameObject.FindWithTag("SpawnPoint");
         player.gameObject.transform.position = spawn_point.transform.position;
+        player.change(MainController.State.NORMAL);
     }
 
     public IEnumerator loadHUB () {
