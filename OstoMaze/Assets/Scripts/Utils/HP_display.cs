@@ -6,12 +6,16 @@ using UnityEngine.UI;
 public class HP_display : MonoBehaviour
 {
     public Image[] sprites;
+    public MainController player;
+
     public GameObject origin;
+
 
     const int max_hp = 10;
     Image[] hearts;
     private void Start()
     {
+        player = GameObject.Find("Bran").GetComponent<MainController>();
         hearts = new Image[5];
         for(int i = 0;i< max_hp/2; i ++)
         {
@@ -21,7 +25,10 @@ public class HP_display : MonoBehaviour
         }
     }
 
-
+    private void Update()
+    {
+        UpdateSprite(player.hp);
+    }
 
     public void UpdateSprite(int hp)
     {

@@ -17,8 +17,6 @@ public class MainController : MonoBehaviour
     public bool is_playing;
     public bool finished_animation = false; // to cotrol the shooting of the arrows and the swing of the sword
     public Joystick input;
-    public Slider ostomy;
-    public HP_display HP;
 
     public Vector2 direction;
     public enum State { NORMAL, DEAD, SCRIPTED, READY_INTERACT, INTERACT, CHANGING_BAG };
@@ -90,14 +88,12 @@ public class MainController : MonoBehaviour
 
     public void TakeDamage(int damage) {
         hp -= damage;
-        if (HP != null) HP.UpdateSprite(hp);
         animator.SetTrigger("wound");
     }
 
     public void AddHealth(int health)
     {
         hp += health;
-        if(HP != null) HP.UpdateSprite(hp);
     }
 
     public void enterInteractionRange(IInteractible interactible) {
@@ -129,7 +125,6 @@ public class MainController : MonoBehaviour
     // Update is called once per frame
     void Update() {
         bs += 0.01f * Time.deltaTime;
-        if(ostomy != null) ostomy.value = bs;
         switch(state){
             case State.NORMAL:
                 //change_bag();

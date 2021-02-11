@@ -18,6 +18,8 @@ TagManager:
   - Obstacles
   - Arrow
   - Swords
+  - Ostomy
+  - HP
   layers:
   - Default
   - TransparentFX
