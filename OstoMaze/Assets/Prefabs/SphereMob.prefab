@@ -431,12 +431,12 @@ MonoBehaviour:
   death: 0
   mob_anim: {fileID: 647175262839872107}
   foods:
-  - {fileID: 8138369890663584816, guid: 9fc829f4d335aab9c8ccaa2afd1f0aee, type: 3}
-  - {fileID: 4347966713679320544, guid: 695d9a6ffcac6f44397b14a1fa8a9cbb, type: 3}
-  - {fileID: 1217986238497264165, guid: e2a046735ac4d5d4da9666e68698f2a9, type: 3}
-  - {fileID: 4171938036606220020, guid: cc61cf8c07c6e0d4d9b6ab32cc2811f0, type: 3}
-  - {fileID: 4956864840057289866, guid: f7dc4e996cfc4d4488abbb144008120b, type: 3}
-  - {fileID: 3293383317758203797, guid: 4bd7cea67864f3b4abf7114dc56c55f7, type: 3}
+  - {fileID: 8138369890663584816, guid: 73dff0ce3861f1f8caca016251ece043, type: 3}
+  - {fileID: 4347966713679320544, guid: 6eb6b77a48ad7a0d0b971737def6d413, type: 3}
+  - {fileID: 1217986238497264165, guid: 976151d45a69883ad95cecb5e4bf6a10, type: 3}
+  - {fileID: 4171938036606220020, guid: dd385e4ea5c1f330d81d2fe26d328b81, type: 3}
+  - {fileID: 4956864840057289866, guid: 770bb80d0fbbdab21bb796399dc561a4, type: 3}
+  - {fileID: 3293383317758203797, guid: 4e55397cdd407a18ba159c95f9e31c1a, type: 3}
   _curr_state: 0
 --- !u!82 &985816856960204400
 AudioSource:
