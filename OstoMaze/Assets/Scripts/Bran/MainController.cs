@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MainController : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class MainController : MonoBehaviour
     public Bows bows;
     public bool is_playing;
     public bool finished_animation = false; // to cotrol the shooting of the arrows and the swing of the sword
+    public Joystick input;
 
     public Vector2 direction;
     public enum State {NORMAL, DEAD, SCRIPTED, READY_INTERACT, INTERACT, CHANGING_BAG};
@@ -35,7 +37,8 @@ public class MainController : MonoBehaviour
     }
 
     void move() {
-        Vector3 direction = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"),0).normalized;
+
+        Vector3 direction = new Vector3(Input.GetAxis("Horizontal") + input.Horizontal, Input.GetAxis("Vertical")+input.Vertical,0).normalized;
         if(direction != Vector3.zero) {
             animator.SetBool("run", true);
             bool flip = body.flipX;
