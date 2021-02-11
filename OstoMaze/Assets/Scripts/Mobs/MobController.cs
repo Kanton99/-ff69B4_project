@@ -22,7 +22,7 @@ public class MobController : MonoBehaviour
     private AudioSource[] attacksounds;
     private SpriteRenderer _sprite;
     private Projectile _projectile;
-    private Food _food;
+    public Food[] foods;
 
     public enum State {SPAWNING, IDLE, MOVING, ATTACKING};
     public State _curr_state;
@@ -85,7 +85,8 @@ public class MobController : MonoBehaviour
     }
 
     private void Die() {
-        Food newfood = Instantiate(this._food, this.transform.position, new Quaternion(0,0,0,0));
+        int rint = Random.Range(0, foods.Length);
+        Food newfood = Instantiate(this.foods[rint], this.transform.position, new Quaternion(0,0,0,0));
         newfood.transform.parent = null;
         newfood.Drop();
         Destroy(this.gameObject);
@@ -118,7 +119,6 @@ public class MobController : MonoBehaviour
         _sprite = GetComponent<SpriteRenderer>();
         attacksounds = GetComponents<AudioSource>();
         _projectile = Resources.Load<Projectile>("Projectile");
-        _food = Resources.Load<Food>("Food");
         _curr_state = State.IDLE;
     }
 

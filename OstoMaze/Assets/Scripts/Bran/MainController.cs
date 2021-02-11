@@ -20,6 +20,9 @@ public class MainController : MonoBehaviour
     public enum State {NORMAL, DEAD, SCRIPTED, READY_INTERACT, INTERACT, CHANGING_BAG};
     public State _curr_state;
 
+    public int hp;
+    public float bs;
+
     // Quasi singleton paradigm, only a Character per scene, the oldest one takes priority.
     void Awake() {
         if(GameObject.FindGameObjectsWithTag("Player").Length > 1)
@@ -62,7 +65,6 @@ public class MainController : MonoBehaviour
 
     void interact() {
         if(Input.GetButtonDown("Fire1")) {
-      //      Debug.Log("Trying to interact");
             if(interactible.interact())
                 _curr_state = State.INTERACT;
             else

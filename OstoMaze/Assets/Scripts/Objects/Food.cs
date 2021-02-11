@@ -5,25 +5,45 @@ using UnityEngine;
 public class Food : MonoBehaviour
 {
 
-    public SpriteRenderer sprite;
     public float TIMER;
+    public float RADIUS;
+
+    public float VELOCITY;
+
+    public int hp;
+    public int bs; // Ostomy bar
+    public float player_velocity;
+    public bool is_cooked;
+
+
     private float _timer;
-    
+    private MainController _player;
+
     public void Drop() {
         _timer = TIMER;
-        // a dirty Little secret in unity is that you can iterate Transform.
-        foreach(Transform child in this.transform) {
-            if (child.name == "Animated") { 
-                child.gameObject.AddComponent<SpriteRenderer>();
-                Sprite[] sprites = Resources.LoadAll<Sprite>("FoodSprites");
-                child.gameObject.GetComponent<SpriteRenderer>().sprite = sprites[Random.Range(0, sprites.Length)];
-                child.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 2;
-            }
-        }
+        _player = GameObject.FindWithTag("Player").GetComponent<MainController>();
+    }
+
+    void collect() {
+        _player.hp += this.hp;
+        _player.bs += this.bs;
+
+        Destroy(this.gameObject);
     }
 
     void Update()
     {
+        float dist = Vector3.Distance(_player.gameObject.transform.position, this.transform.position);
+
+        if(dist < RADIUS) {
+            float step = VELOCITY * Time.deltaTime;
+            this.transform.position = Vector3.MoveTowards(this.transform.position, _player.gameObject.transform.position, step);
+        }
+
+        if (dist < 0.5f) {
+            collect();
+        }
+
         _timer -= Time.deltaTime;
         if (_timer <= 0) Destroy(this.gameObject);
     }
