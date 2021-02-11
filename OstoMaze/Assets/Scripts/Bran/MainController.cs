@@ -142,6 +142,14 @@ public class MainController : MonoBehaviour
             flip();
     }
 
+    public void Respawn() {
+    
+    }
+
+    public void Die() {
+        
+    }
+
     // Update is called once per frame
     void Update() {
         bs += 0.01f * Time.deltaTime;
