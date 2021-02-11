@@ -25,14 +25,8 @@ public class Food : MonoBehaviour, IInteractible
     {
         return this.gameObject;
     }
-
+    
     public void Drop() {
-
-    }
-
-
-    void Start()
-    {
         _timer = TIMER;
     }
 
