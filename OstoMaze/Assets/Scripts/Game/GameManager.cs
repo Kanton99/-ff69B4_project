@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviour
     }
 
     private void initHub() {
-        GameObject spawn_point = GameObject.FindWithTag("PlayerSpawn");
+        GameObject spawn_point = GameObject.FindWithTag("SpawnPoint");
         player.gameObject.transform.position = spawn_point.transform.position;
     }
 
