@@ -119,5 +119,21 @@ PrefabInstance:
       propertyPath: char_name
       value: Triangle
       objectReference: {fileID: 0}
+    - target: {fileID: 8316202246543805869, guid: 8a8d6fac058ac094c94488029d991c6a, type: 3}
+      propertyPath: foods.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8316202246543805869, guid: 8a8d6fac058ac094c94488029d991c6a, type: 3}
+      propertyPath: foods.Array.data[3]
+      value: 
+      objectReference: {fileID: 4171938036606220020, guid: cc61cf8c07c6e0d4d9b6ab32cc2811f0, type: 3}
+    - target: {fileID: 8316202246543805869, guid: 8a8d6fac058ac094c94488029d991c6a, type: 3}
+      propertyPath: foods.Array.data[4]
+      value: 
+      objectReference: {fileID: 4956864840057289866, guid: f7dc4e996cfc4d4488abbb144008120b, type: 3}
+    - target: {fileID: 8316202246543805869, guid: 8a8d6fac058ac094c94488029d991c6a, type: 3}
+      propertyPath: foods.Array.data[5]
+      value: 
+      objectReference: {fileID: 3293383317758203797, guid: 4bd7cea67864f3b4abf7114dc56c55f7, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a8d6fac058ac094c94488029d991c6a, type: 3}
