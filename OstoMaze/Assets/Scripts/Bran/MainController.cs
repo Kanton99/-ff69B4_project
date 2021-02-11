@@ -153,6 +153,8 @@ public class MainController : MonoBehaviour
     // Update is called once per frame
     void Update() {
         bs += 0.01f * Time.deltaTime;
+        if (hp >= 10) hp = 10;
+        if (bs >= 1.0f) bs = 1.0f;
         switch(state){
             case State.NORMAL:
                 move();
