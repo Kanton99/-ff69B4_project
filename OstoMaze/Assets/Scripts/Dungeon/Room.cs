@@ -83,7 +83,7 @@ public class Room : MonoBehaviour
         }
     }
 
-    private void spawnEnemies() {
+    public void spawnEnemies() {
         foreach (Transform enemy in enemies) {
             enemy.gameObject.SetActive(true);
         }
