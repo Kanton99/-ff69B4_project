@@ -12618,7 +12618,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 217706931346447377, guid: f53fee069dbaf150fad16677a0eef6f6, type: 3}
       propertyPath: m_Color.a
-      value: 0.45882353
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 340306685344153621, guid: f53fee069dbaf150fad16677a0eef6f6, type: 3}
       propertyPath: m_AnchorMax.y
@@ -12658,11 +12658,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2651933352891541202, guid: f53fee069dbaf150fad16677a0eef6f6, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 0.2306821
       objectReference: {fileID: 0}
     - target: {fileID: 2651933352891541202, guid: f53fee069dbaf150fad16677a0eef6f6, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 0.2306821
       objectReference: {fileID: 0}
     - target: {fileID: 3163985565971956753, guid: f53fee069dbaf150fad16677a0eef6f6, type: 3}
       propertyPath: m_RootOrder
