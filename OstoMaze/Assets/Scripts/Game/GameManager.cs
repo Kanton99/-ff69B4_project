@@ -51,17 +51,21 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator loadDungeon() {
         GameObject.FindWithTag("MusicManager").GetComponent<MusicManager>().HubtoDungeon();
-
         yield return fadeIn();
         yield return loadScene("Assets/Scenes/Dungeon1.unity");
         initDungeon();
         yield return fadeOut();
-        Debug.Log("Scene completed!");
+    }
+
+    private void initHub() {
+        GameObject spawn_point = GameObject.FindWithTag("SpawnPoint");
+        player.gameObject.transform.position = spawn_point.transform.position;
     }
 
     public IEnumerator loadHUB () {
         yield return fadeIn();
         yield return loadScene("Assets/Scenes/HUB.unity");
+        initHub();
         yield return fadeOut();
     }
 

@@ -1,16 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class InteractionEvent : MonoBehaviour, IInteractible
 {
-    public UnityEvent interaction;
+    private GameManager _manager;
     // Start is called before the first frame update
-    void Start() { enabled = false; }
+    void Start() {
+        _manager = GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
+        enabled = false;
+    }
 
     public bool interact() {
-        interaction.Invoke();
+        _manager.changeStateTo(GameManager.State.TO_HUB);
         return true;
     }
 
