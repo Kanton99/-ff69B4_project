@@ -10,6 +10,7 @@ public class MobController : MonoBehaviour
     public string char_name;
     public float _timer;
     public float hp;
+    public bool death = false;
 
     public Animator mob_anim;
 
@@ -19,7 +20,8 @@ public class MobController : MonoBehaviour
 
     private Rigidbody2D _rb;
     private GameObject _player;
-    private AudioSource[] attacksounds;
+    private AudioSource[] sounds;
+    private int index;  // index for AudioSource array
     private SpriteRenderer _sprite;
     private Projectile _projectile;
     public Food[] foods;
@@ -71,7 +73,7 @@ public class MobController : MonoBehaviour
 
     private void Attack()
     {
-        attacksounds[Random.RandomRange(0, 2)].Play();
+        sounds[Random.Range(0, 2)].Play();
         Vector3 spawn = this.transform.position - new Vector3(0, 0.5f, 0);  // mob position - offset
         Projectile newprojectile = Instantiate(this._projectile, spawn, new Quaternion(0,0,0,0));
         Vector3 direction = (_player.transform.position - transform.position).normalized;
@@ -85,11 +87,13 @@ public class MobController : MonoBehaviour
     }
 
     private void Die() {
+        index = Random.Range(2, 4);
+        sounds[index].Play();
         int rint = Random.Range(0, foods.Length);
         Food newfood = Instantiate(this.foods[rint], this.transform.position, new Quaternion(0,0,0,0));
         newfood.transform.parent = null;
         newfood.Drop();
-        Destroy(this.gameObject);
+        death = true;
     }
 
     void OnTriggerEnter2D(Collider2D coll) {
@@ -117,7 +121,7 @@ public class MobController : MonoBehaviour
         _directions[3] = new Vector3(1, 0, 0);
         _offset = GetComponent<BoxCollider2D>().offset * transform.localScale.y;
         _sprite = GetComponent<SpriteRenderer>();
-        attacksounds = GetComponents<AudioSource>();
+        sounds = GetComponents<AudioSource>();
         _projectile = Resources.Load<Projectile>("Projectile");
         _curr_state = State.IDLE;
     }
@@ -160,5 +164,6 @@ public class MobController : MonoBehaviour
                     _sprite.flipX = true;
                 break;
         }
+        if (!sounds[index].isPlaying && death) Destroy(this.gameObject);
     }
 }
