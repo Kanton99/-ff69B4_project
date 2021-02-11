@@ -248,8 +248,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fc3fd72194904d04e815eba86a21370f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   sound: {fileID: 6565425871555225229}
   player: {fileID: 9180525351279581319}
   player_pos: {fileID: 1220100379119807283}
@@ -329,8 +329,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bc423fdbe7543f4aa908f5ae877a2ffb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   player: {fileID: 9180525351279581319}
 --- !u!1 &1220100379119807281
 GameObject:
@@ -386,7 +386,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
-  m_WarningMessage: 
+  m_WarningMessage:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
@@ -432,8 +432,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 026a3d0f091f55843b51be67b76896ad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   moving_speed: 4.5
   animator: {fileID: 1220100379119807282}
   arms: {fileID: 1220100379156757643}
@@ -448,7 +448,7 @@ MonoBehaviour:
   direction: {x: 0, y: 0}
   state: 0
   hp: 10
-  bs: 5
+  bs: 0
 --- !u!1 &1220100379156757641
 GameObject:
   m_ObjectHideFlags: 0
@@ -834,8 +834,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ae90254daf0fc7c49a7c5c9ea364624c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   swords: []
   player_anim: {fileID: 1220100379119807282}
   player: {fileID: 9180525351279581319}

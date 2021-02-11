@@ -77,8 +77,11 @@ public class MobController : MonoBehaviour, IEnemy {
 
     public void TakeDamage(float damage) {
         this.hp -= damage; //Damage computation
-        if (hp <= 0)
+        mob_anim.SetTrigger("wound");
+        if (hp <= 0) {
             mob_anim.Play("Death");
+            mob_anim.SetLayerWeight(mob_anim.GetLayerIndex("Wounded"), 0);
+        }
     }
 
     public Vector3 GetPosition() {
@@ -88,10 +91,12 @@ public class MobController : MonoBehaviour, IEnemy {
     private void Die() {
         index = Random.Range(2, 4);
         sounds[index].Play();
-        int rint = Random.Range(0, foods.Length);
-        Food newfood = Instantiate(this.foods[rint], this.transform.position, new Quaternion(0,0,0,0));
-        newfood.transform.parent = null;
-        newfood.Drop();
+        if(foods != null  && foods.Length  > 0) {
+            int rint = Random.Range(0, foods.Length);
+            Food newfood = Instantiate(this.foods[rint], this.transform.position, new Quaternion(0,0,0,0));
+            newfood.transform.parent = null;
+            newfood.Drop();
+        }
         death = true;
     }
 

@@ -18,7 +18,12 @@ public class Swords : MonoBehaviour
     }
 
     public void Attack() {
-        swords[Random.Range(0, swords.Length)].Play();
+        bool playing = false;
+        foreach(AudioSource sound in swords) {
+            if(sound.isPlaying)
+                playing = true;
+        }
+        if(!playing) swords[Random.Range(0, swords.Length)].Play();
         player_anim.SetTrigger("swing");
     }
 }

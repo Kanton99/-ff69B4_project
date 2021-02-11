@@ -7,7 +7,6 @@ public class Food : MonoBehaviour
 
     public float TIMER;
     public float RADIUS;
-
     public float VELOCITY;
 
     public int hp;
@@ -15,6 +14,8 @@ public class Food : MonoBehaviour
     public float player_velocity;
     public bool is_cooked;
 
+    public AudioSource eating_sound;
+    private bool collected = false;
 
     private float _timer;
     private MainController _player;
@@ -25,14 +26,15 @@ public class Food : MonoBehaviour
     }
 
     void collect() {
-        _player.hp += this.hp;
-        _player.bs += this.bs;
-
-        Destroy(this.gameObject);
+        _player.AddHealth(this.hp);
+        _player.bs += this.bs/50;
+        eating_sound.Play();
+        collected = true;
     }
-
+        
     void Update()
     {
+
         float dist = Vector3.Distance(_player.gameObject.transform.position, this.transform.position);
 
         if(dist < RADIUS) {
@@ -40,11 +42,12 @@ public class Food : MonoBehaviour
             this.transform.position = Vector3.MoveTowards(this.transform.position, _player.gameObject.transform.position, step);
         }
 
-        if (dist < 0.5f) {
-            collect();
-        }
-
         _timer -= Time.deltaTime;
         if (_timer <= 0) Destroy(this.gameObject);
+        if (!eating_sound.isPlaying && collected) Destroy(this.gameObject);
+
+        if (dist < 0.5f && !collected) {
+            collect();
+        }
     }
 }
