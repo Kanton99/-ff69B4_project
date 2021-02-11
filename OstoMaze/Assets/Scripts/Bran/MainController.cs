@@ -56,27 +56,28 @@ public class MainController : MonoBehaviour
         rigid.velocity = Vector3.zero;
     }
 
-    void attack() {
-        if(Input.GetButtonDown("Fire1")) {
+    public void attack() {
+        if (_curr_state == State.NORMAL)
+        {
             if (animator.GetBool("sword")) swords.Attack();
             else bows.Attack();
         }
     }
 
-    void interact() {
-        if(Input.GetButtonDown("Fire1")) {
-            if(interactible.interact())
+    public void interact() {
+        if (_curr_state == State.INTERACT || _curr_state == State.READY_INTERACT)
+        {
+            if (interactible.interact())
                 _curr_state = State.INTERACT;
             else
                 _curr_state = State.NORMAL;
-        }
+        }   
     }
 
-    void changeWeapon() {
-        if (Input.GetButtonDown("Fire3")) {
+    public void changeWeapon() {
             bool toggle = animator.GetBool("sword");
             animator.SetBool("sword", !toggle);
-        }
+        
     }
 
     public void enterInteractionRange(IInteractible interactible) {
@@ -112,16 +113,16 @@ public class MainController : MonoBehaviour
             case State.NORMAL:
                 change_bag();
                 move();
-                attack();
-                changeWeapon();
+                //attack();
+                //changeWeapon();
                 break;
             case State.READY_INTERACT:
                 move();
-                interact();
+                //interact();
                 break;
             case State.INTERACT:
                 stop();
-                interact();
+                //interact();
                 break;
             // TODO: Needs to be corrected!
             case State.CHANGING_BAG:
