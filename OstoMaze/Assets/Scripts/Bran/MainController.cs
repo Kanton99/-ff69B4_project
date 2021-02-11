@@ -86,6 +86,10 @@ public class MainController : MonoBehaviour
         }
     }
 
+    public void TakeDamage(int damage) {
+        hp -= damage;
+    }
+
     public void enterInteractionRange(IInteractible interactible) {
         this.interactible = interactible;
         interactible.enterInteractionRange(this.gameObject);
