@@ -15,6 +15,7 @@ public class MainController : MonoBehaviour
     public Bows bows;
     public bool is_playing;
     public bool finished_animation = false; // to cotrol the shooting of the arrows and the swing of the sword
+    public Joystick input;
 
     public Vector2 direction;
     public enum State {NORMAL, DEAD, SCRIPTED, READY_INTERACT, INTERACT, CHANGING_BAG};
