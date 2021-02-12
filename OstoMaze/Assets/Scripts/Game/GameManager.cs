@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
 
     private bool is_playing = true;
 
-    public enum State {HUB, TO_DUNGEON, TO_HUB, DUNGEON};
+    public enum State {HUB, TO_DUNGEON, TO_HUB, DUNGEON, RESTART};
     public State curr_state;
 
     // Quasi singleton paradigm, only a GameManager per scene, the oldest one takes priority.
@@ -72,6 +72,14 @@ public class GameManager : MonoBehaviour
         yield return fadeOut();
     }
 
+    public IEnumerator loadHUBRespawn () {
+        yield return fadeIn();
+        yield return loadScene("Assets/Scenes/HUB.unity");
+        initHub();
+        player.Respawn();
+        yield return fadeOut();
+    }
+
     private IEnumerator loadScene(string scene) {
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(scene);
         while (!asyncLoad.isDone)
@@ -82,11 +90,19 @@ public class GameManager : MonoBehaviour
         curr_state = state;
     }
 
+    public void onPlayerDeath() {
+        changeStateTo(State.RESTART);
+    }
+
     void Update() {
         switch(curr_state) {
             case State.HUB:
             break;
             case State.DUNGEON:
+            break;
+            case State.RESTART:
+                StartCoroutine(loadHUBRespawn());
+                changeStateTo(State.HUB);
             break;
             case State.TO_HUB:
                 StartCoroutine(loadHUB());

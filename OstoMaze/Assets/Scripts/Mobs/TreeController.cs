@@ -60,7 +60,7 @@ public class TreeController : MonoBehaviour, IEnemy
     }
 
     public void ShootPlayer(int num) {
-        Vector3 dir = _player.gameObject.transform.position - this.transform.position;
+        Vector3 dir = (_player.gameObject.transform.position - this.transform.position).normalized;
         ShootMultiples(dir, num, Mathf.PI / 2);
     }
 

@@ -27,6 +27,15 @@ public class Projectile: MonoBehaviour
         _direction = aim;  // aim position
     }
 
+    public void Shoot(Vector3 aim) {
+        _rb = GetComponent<Rigidbody2D>();
+        _offset = GetComponent<BoxCollider2D>().offset * transform.localScale.y;
+        _sprite = GetComponent<SpriteRenderer>();
+        impactsounds = GetComponents<AudioSource>();
+        _direction = aim;  // aim position
+    }
+
+
     void OnTriggerEnter2D(Collider2D coll)
     {
         if (coll.gameObject.tag == "MainHurtBox") {

@@ -12,6 +12,7 @@ public class HP_display : MonoBehaviour
 
     const int max_hp = 10;
     Image[] hearts;
+
     private void Start()
     {
         player = GameObject.Find("Bran").GetComponent<MainController>();

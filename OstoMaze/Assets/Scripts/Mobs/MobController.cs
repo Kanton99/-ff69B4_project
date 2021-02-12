@@ -66,8 +66,7 @@ public class MobController : MonoBehaviour, IEnemy {
         _curr_state = State.IDLE;
     }
 
-    private void Attack()
-    {
+    private void Attack() {
         sounds[Random.Range(0, 2)].Play();
         Vector3 spawn = this.transform.position - new Vector3(0, 0.5f, 0);  // mob position - offset
         Projectile newprojectile = Instantiate(this._projectile, spawn, new Quaternion(0,0,0,0));
@@ -91,7 +90,9 @@ public class MobController : MonoBehaviour, IEnemy {
     private void Die() {
         index = Random.Range(2, 4);
         sounds[index].Play();
+        Debug.Log("Dying!");
         if(foods != null  && foods.Length  > 0) {
+            Debug.Log("Dropping!");
             int rint = Random.Range(0, foods.Length);
             Food newfood = Instantiate(this.foods[rint], this.transform.position, new Quaternion(0,0,0,0));
             newfood.transform.parent = null;
