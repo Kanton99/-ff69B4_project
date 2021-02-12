@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     private MusicManager music;
     public MainController player;
     public Camera players_camera;
+    public GameObject UI;
     public Animator animator;
 
     private bool is_playing = true;
@@ -21,6 +22,7 @@ public class GameManager : MonoBehaviour
         if(GameObject.FindGameObjectsWithTag("GameManager").Length > 1)
             Destroy(this.gameObject);
 
+        DontDestroyOnLoad(UI);
         DontDestroyOnLoad(this.gameObject);
         DontDestroyOnLoad(player.gameObject);
         DontDestroyOnLoad(players_camera.gameObject);
