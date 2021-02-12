@@ -20,6 +20,7 @@ TagManager:
   - Swords
   - Ostomy
   - HP
+  - UI
   layers:
   - Default
   - TransparentFX
