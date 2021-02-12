@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class MainController : MonoBehaviour
@@ -26,7 +27,10 @@ public class MainController : MonoBehaviour
     public enum State { NORMAL, DEAD, SCRIPTED, READY_INTERACT, INTERACT, CHANGING_BAG };
     public State state;
 
+    public UnityEvent player_dead;
+
     public int hp;
+    public int max_hp;
     public float bs;  // barra stomia [0, 50]
 
     // Quasi singleton paradigm, only a Character per scene, the oldest one takes priority.
@@ -121,6 +125,7 @@ public class MainController : MonoBehaviour
         state = State.CHANGING_BAG;
         animator.SetTrigger("ChangeBag");
         bs = 0;
+        moving_speed = 4.5f;
     }
 
     public void change(State new_state) {
@@ -141,11 +146,18 @@ public class MainController : MonoBehaviour
     }
 
     public void Respawn() {
-        print("respawn");
+        hp = 10;
+        bs = 0;
+        animator.SetTrigger("respawn");
+        //swords.gameObject.SetActive(true);
+        //body.color = new Color(1,1,1,1);
+        animator.SetLayerWeight(animator.GetLayerIndex("Wounded"), 1);
+        respawn_sound.Play();
+        change(State.NORMAL);
     }
 
     public void Die() {
-        print("die");
+        player_dead.Invoke();
     }
 
     // Update is called once per frame
