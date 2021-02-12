@@ -5,6 +5,7 @@ using UnityEngine;
 public class Arrow : MonoBehaviour
 {
     private Rigidbody2D _rb;
+    private BoxCollider2D _collider;
     public AudioSource impactsound;
     private int index;
     private SpriteRenderer _sprite;
@@ -20,6 +21,7 @@ public class Arrow : MonoBehaviour
         _sprite = GetComponent<SpriteRenderer>();
         transform.position = spawn; // spawn position
         _direction = aim;  // aim position
+        _collider = GetComponent<BoxCollider2D>();
     }
 
     void OnTriggerEnter2D(Collider2D coll)
@@ -27,6 +29,7 @@ public class Arrow : MonoBehaviour
         has_hit = true;
         impactsound.Play();
         _sprite.enabled = false;
+        _collider.enabled = false;
     }
 
     void Update()
