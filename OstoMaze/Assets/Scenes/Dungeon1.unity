@@ -974,6 +974,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23c305ed0d4e3ae42843bcadaac16938, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 7620693851178428969, guid: d2816e292019a974b9f893db05246556, type: 3}
+  - {fileID: 6023477641252387912, guid: bc2617ee1edff0c40b1d1a82a25cdd52, type: 3}
+  - {fileID: 5060559485924831324, guid: 4b3f75cf74e6cee48ad33490e8d05100, type: 3}
+  player: {fileID: 834266486}
+  origin: {fileID: 1051973137}
 --- !u!114 &1215680945 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2325325254147451348, guid: 66883fa56a7185046a777d41d9601fed, type: 3}
@@ -2210,6 +2216,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3154ed6db92c4d4cbc6c515358485a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 834266486}
+  slider: {fileID: 2105810320}
 --- !u!1 &2120373617
 GameObject:
   m_ObjectHideFlags: 0

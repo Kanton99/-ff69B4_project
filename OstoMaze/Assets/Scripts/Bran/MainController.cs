@@ -12,7 +12,6 @@ public class MainController : MonoBehaviour
     public SpriteRenderer body;
     public Rigidbody2D rigid;
     public IInteractible interactible;
-    public Slider slider;
     public Swords swords;
     public Bows bows;
     public bool is_playing;
